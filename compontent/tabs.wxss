@@ -1,0 +1,6 @@
+view {
+  width: 100rpx;
+}
+view .abc {
+  height: 100rpx;
+}
