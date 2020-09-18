@@ -1,0 +1,60 @@
+    <view class="shopDetail bgcf1f1 h100">
+        <view class="master bgcfff">
+            <view class="page-section page-section-spacing swiper">
+                <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}" circular="true" style="height:750rpx" bindtap="previewImgEvt">
+                        <swiper-item>
+                            <image class="wh100 " src="/static/images/banner@2x.png" alt=""> </image>
+                        </swiper-item>
+                </swiper>
+            </view>
+
+            <view class="ff1D  price">￥{{shopDetail.goodsPrice}}111</view>
+            <view class="f28 c333 pl30 name">{{shopDetail.description}}111</view>
+        </view>
+      
+        <view class="shop-detail-box bgcf1f1">
+            <view class="txt flex">// 商品详情 //</view>
+            <image  class="shop-img" src="/static/images/banner@2x.png"></image>
+        </view>
+        <view class="bottom djcai bgcfff">
+            <view class="bottom-left daic">
+                <button open-type="contact" bindcontact="handleContact" class="service flex mr40" style="margin-right: 40rpx">
+                    <image class="wh40 mr10" src="/static/images/kf@2x.png"></image>
+                    <text class="f28 c333 ">客服</text>
+                </button>
+                <view class="f28 c333 daic">
+                    <image wx:if="{{shopDetail.favoriteStatus == 0}}" class="wh40 mr10" src="/static/images/sc@2x.png" bindtap="collectEvt"></image>
+                    <image wx:else class="wh40 mr10" src="/static/images/collect-select.png" bindtap="collectEvt"></image>
+                    <text>收藏</text>
+                </view>
+            </view>
+          
+            <view  class="bottom-right f28 fff flex">
+                <view class="join flex flex1 " bindtap="openPopup">加入购物车</view>
+                <view class="buy flex flex1 " bindtap="openPopup('2')">立即购买</view>
+            </view>
+        </view>
+        <van-popup show="{{ show }}" closeable position="bottom" >
+            <view class="popup-count bgcfff">
+                <view class="dflex bde5e5 top-count">
+                    <image class="wh236 mr30" src="{{shopDetail.pic1}}"></image>
+                    <view>
+                        <view class="f34 ff1D" wx:if="{{shopDetail.goodsAreaId != 3}}">￥{{shopDetail.goodsPrice}}</view>
+                        <view class="f34 ff1D" wx:else>{{shopDetail.goodsPrice}}积分</view>
+                        <view class="f24 c999 mt20">库存{{shopDetail.stock}}</view>
+                    </view>
+                </view>
+                <view class="djcai mt20 mb60">
+                    <text>数量</text>
+                    <view class="operate">
+                        <van-stepper value="{{number}}" data-index="{{index}}" min="1" :max="shopDetail.stock" bind:change="onChange" />
+                    </view>
+                </view>
+                <view class="btn-box flex mt10">
+                    <view class="flex f32 fff bgcff3 btn" bindtap="addCart" style="width:660rpx">确认</view>
+                  
+                </view>
+            </view>
+
+        </van-popup>
+    </view>

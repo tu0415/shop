@@ -1,0 +1,49 @@
+ <view class="orderPay h100  bgcf1f1">
+        <view bindtap="goAddress" class="adress-box bgcfff djcai plr30 br20 mlr30">
+            <view class="daic">
+                <image class="wh40" src="/static/images/delete.png"></image>
+                <view class="plr30">
+                    <view class="dflex" style="align-items: flex-end;">
+                        <text class="f32 c333" style="margin-right:25rpx">{{selfAddres.name}}111</text>
+                        <text class="f28 c999">{{selfAddres.phone}}111</text>
+                    </view>
+                    <view class="f28 c333 mt20">{{selfAddres.address || ''}}111</view>
+                </view>
+            </view>
+             <image class="wh40" src="/static/images/delete.png"></image>
+        </view>
+        <view class="count">
+            <view class="shop-info bgcfff br20 mlr30 mb20" wx:for="{{list}}" wx:key="index">
+                <view class="djcsb mb20">
+                    <image class="wh220 mr30 br20" src="/static/images/delete.png"></image>
+                    <view class="flex1 djcsb flex-column" style="">
+                        <view class="f30 c333">{{item.goodsName}}</view>
+                        <view class="djcai">
+                            <text class="f28 c333">￥{{item.goodsPrice}}</text>
+                            <text class="f26 c999">X{{item.goodsQuantity}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="djcai mt20 mb20">
+                    <view class="w100">
+                        <text> 备注</text>
+                        <view class="bgcf1f1 mt10 mb10" style="padding:10rpx 0;">
+                            <textarea value="{{count}}" class="f24 c999 bgcf1f1 w100  pl10 br5 " placeholder="选填" auto-height="true" />
+                        </view>
+                    </view>
+                   
+                </view>
+                <view class="jcfe dflex">
+                    共{{item.goodsQuantity}}1件，小计：
+                    <text  class="ff1D">￥{{item.itemPirce}}100</text>
+                </view>
+            </view>
+        </view>
+
+
+        <view class="position-fixed bottom bgcfff daic">
+            共{{total}}11件，小计：
+            <text class="ff1D">￥{{price}}11</text>
+            <view class="pay flex c333 bgcffd" bindtap="goPay">微信支付</view>
+        </view>
+    </view>

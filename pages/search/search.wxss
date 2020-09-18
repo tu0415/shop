@@ -1,0 +1,70 @@
+page {
+  height: 100%;
+}
+page .top-fixed {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+page .search {
+  height: 88rpx;
+}
+page .search .search-input {
+  width: 440rpx;
+  height: 60rpx;
+  background: rgba(242, 242, 242, 0.2);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  padding-left: 86rpx;
+}
+page .search .back {
+  margin: 0 20rpx;
+}
+page .search .search-icon {
+  left: 110rpx;
+}
+page .history .record {
+  padding: 50rpx 0 40rpx;
+}
+page .history .history-item {
+  height: 70rpx;
+  background: #fff;
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  color: #333333;
+  padding: 0 40rpx;
+  display: inline-block;
+  line-height: 70rpx;
+  margin: 0 20rpx 20rpx 0;
+}
+page .tab-box .tab {
+  color: #333333;
+}
+page .tab-box .tab .tab-item {
+  height: 100rpx;
+}
+page .tab-box .tab .tab-item.active {
+  color: #ff1e1e;
+}
+page .shop-list {
+  padding-top: 240rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+page .shop-list .shop-list-item {
+  width: 336rpx;
+  height: 480rpx;
+}
+page .shop-list .shop-list-item .name {
+  margin: 18rpx;
+}
+page .shop-list .shop-list-item .price {
+  margin-left: 24rpx;
+  margin-bottom: 20rpx;
+}

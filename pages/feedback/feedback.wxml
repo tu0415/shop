@@ -1,0 +1,8 @@
+ <view class="feedback plr30 bgcfff h100">
+        <view class="count">
+            <textarea bindinput="bindTextAreaBlur" value="{{content}}" placeholder-style="font-size:28rpx;color:#CCCCCC" cols="30" rows="10" placeholder="请输入您的反馈/问题，平台收到后将及时联系您..." auto-focus></textarea>
+        </view>
+        <view class="flex mt60">
+            <button :disabled="disabled" class="flex c333 bgcffd btn" bindtap="addFeedbackEvt">提交</button>
+        </view>
+    </view>

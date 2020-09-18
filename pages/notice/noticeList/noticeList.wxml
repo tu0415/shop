@@ -1,0 +1,9 @@
+ <view class="notice plr30 bgcfff h100">
+         <navigator wx:for="{{list}}" wx:key="index" hover-class="none" class="list bde5e5 djcai" url="/pages/me/noticeDetail?id={{item.id}}">
+             <view class="left flex1">
+                 <view>{{item.title}}</view>
+                 <view class="f24 c999 mt10">{{item.createTime}}</view>
+             </view>
+              <van-icon name="arrow" class="mt20" />
+         </navigator>
+    </view>

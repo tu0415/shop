@@ -1,0 +1,69 @@
+page {
+  background-color: #f1f1f1;
+}
+page .car {
+  padding-bottom: 100rpx;
+}
+page .car .address {
+  padding: 25rpx 30rpx;
+}
+page .car .list {
+  margin: 0 30rpx;
+}
+page .car .list .list-item {
+  padding: 36rpx 28rpx 28rpx 30rpx;
+}
+page .car .list .list-item .info .shop-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+page .car .list .list-item .specification {
+  border-radius: 50rpx;
+  padding: 12rpx 25rpx;
+  display: inline-block;
+  margin: 10rpx 0;
+  font-size: 26rpx;
+}
+page .car .list .list-item .number-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10rpx;
+}
+page .car .list .list-item .number-box .btn {
+  width: 50rpx;
+  height: 5r0px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5rpx;
+}
+page .car .list .list-item .number-box .number {
+  width: 120rpx;
+  height: 50rpx;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5rpx;
+  text-align: center;
+}
+page .car .buy-box {
+  padding: 14rpx 30rpx 14rpx 60rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+page .car .buy-box .warn {
+  width: 150rpx;
+  border-radius: 35rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  background-color: #ff3c3c;
+}
+page .nodata {
+  padding: 100rpx 0;
+}
+page .nodata .nodata-car {
+  width: 620rpx;
+  height: 620rpx;
+}

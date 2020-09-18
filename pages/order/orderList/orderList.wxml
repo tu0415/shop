@@ -1,0 +1,76 @@
+ <view class="orderDetail plr30 bgcf1f1">
+        <view class="tab-box bgcf1f1 position-fixed" style="top:0">
+            <view class="tab flex">
+                <view  class="f28 flex flex1 tab-item {{tabIndex ==1 ? 'active':'' }}">
+                    <text data-index="1" bindtap="select">全部订单</text>
+                </view>
+                <view  class="f28 flex flex1 tab-item {{tabIndex ==2 ? 'active':'' }}">
+                    <text data-index="2" bindtap="select">待付款</text>
+                </view>
+                <view  class="f28 flex flex1 tab-item {{tabIndex ==3 ? 'active':'' }}">
+                    <text data-index="3" bindtap="select">待发货</text>
+                </view>
+                <view class="f28 flex flex1 tab-item {{tabIndex ==4 ? 'active':'' }}">
+                    <text  data-index="4" bindtap="select">待收货</text>
+                </view>
+                <view  class="f28 flex flex1 tab-item {{tabIndex ==5 ? 'active':'' }}">
+                    <text data-index="5" bindtap="select">已完成</text>
+                </view>
+            </view>
+        </view>
+        <view class="list-box  ">
+            <view wx:if="{{list.length != 0}}" wx:for="{{list}}" wx:key="*this" class="bgcfff br20 mb10  list">
+                <view class="left " style="width:100%">
+                    <view class="f26 mt5 djcai">
+                        <text class="f28">{{item.goodsName}}</text>
+                        <text wx:if="{{item.orderStatus == 1}}" class="ff1D  f24">待付款</text>
+                        <text wx:if="{{item.orderStatus == 2}}" class="ff1D  f24">待发货</text>
+                        <text wx:if="{{item.orderStatus == 3}}" class="ff1D  f24">待收货</text>
+                        <text wx:if="{{item.orderStatus == 4}}" class="c999  f24">已完成</text>
+                        <text wx:if="{{item.orderStatus == 5}}" class="c999  f24">已取消</text>
+                    </view>
+                    <view class="djcai mb10" wx:for="{{item.orderInfoList}}" wx:for-item="items" wx:key="*this">
+                        <image class="wh88 mr20 br20" src="{{items.goodsPic}}"></image>
+                        <view class="flex1 djcsb flex-column">
+                            <text class="f28 c999 mb10">{{items.goodsName}}</text>
+                            <view class="f28 c999 djcai">
+                                <text wx:if="{{item.payWay == 1}}">￥{{items.goodsPrice}}</text>
+                                <text wx:else>{{items.goodsPrice}}积分</text>
+                                <text class="c999  f24">X{{items.goodsQuantity}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- <text class=" bold f34">-300</text> -->
+                <view class="f28 daic jcfe bde5e5" wx:if="{{item.payWay == 1}}" style="padding:15rpx 0 20rpx">实付：￥{{item.orderAmount}}</view>
+                 <view class="f28 daic jcfe bde5e5" wx:if="{{item.payWay == 2}}" style="padding:15rpx 0 20rpx">实付：{{item.orderAmount}}积分</view>
+                <view class="btn-box mt20">
+                    <view class="daic jcfe">
+                        <!-- <view class="btn addcar flex"  wx:if="{{item.payWay == 1}}"  data-id="{{item.id}}" bindtap="addBuy">加入购物车</view> -->
+                        <!-- <view class="btn take flex" wx:if="{{item.orderStatus == 1}}" data-list="{{item.orderInfoList}}" bindtap="goPay">去付款</view> -->
+                         <view class="btn take flex" wx:if="{{item.orderStatus == 1}}" data-list="{{item}}" bindtap="goPay">去付款</view>
+                         <!-- <view class="btn addcar flex ml10" data-id="{{item.id}}" data-customerIds="{{item.customerId}}" wx:if="{{item.orderStatus == 1}}" bindtap="deleteOrder">删除订单</view> -->
+                           <view class="btn addcar flex ml10" data-id="{{item.id}}" data-customerIds="{{item.customerId}}" wx:if="{{item.orderStatus == 1}}" bindtap="cancelOrder">取消订单</view>
+                         <navigator url="/pages/me/orderDetail?id={{item.id}}" hover-class="none" class="btn addcar flex ml10"  data-list="{{item.orderInfoList}}" >订单详情</navigator>
+                       
+                        <view class="btn take flex" data-id="{{item.id}}" data-customerIds="{{item.customerId}}" wx:if="{{item.orderStatus == 3}}" data-list="{{item.orderInfoList}}" bindtap="takeEvt">确认收货</view>
+                    </view>
+                    <!-- <view class="daic jcfe" wx:if="{{item.orderStatus == 2}}">
+                        <view class="btn addcar flex" data-id="{{item.id}}" bindtap="addBuy" >加入购物车</view>
+                        <view class="btn take flex">提醒发货</view>
+                    </view>
+                    <view class="daic jcfe" wx:if="{{item.orderStatus == 3}}">
+                        <view class="btn addcar flex" data-id="{{item.id}}" bindtap="addBuy">加入购物车</view>
+                        <view class="btn take flex"  data-id="{{item.id}}"  data-customerId="{{item.customerId}}"  bindtap="take">确认收货</view>
+                    </view>
+                    <view class="daic jcfe" wx:if="{{item.orderStatus == 4}}">
+                        <view class="btn addcar flex" data-id="{{item.id}}" bindtap="addBuy">加入购物车</view>
+                    </view> -->
+                </view>
+            </view>
+            <view wx:if="{{list.length == 0}}" class="flex">没有更多</view>
+        </view>
+         <!-- <view wx:if="{{isModal}}">
+            <loginModal :isModal="isModal" :parentId="parentId" @close="close" @accomplish="accomplish"></loginModal>
+        </view> -->
+    </view>

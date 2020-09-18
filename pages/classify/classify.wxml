@@ -1,0 +1,137 @@
+  <view class="classify">
+        <view class="search pr f26">
+            <icon class="icon-small pb" type="search" size="16"></icon>
+            <input type="text" placeholder="搜索您想要的商品" bindtap="gosearch" />
+        </view>
+      
+        <view class="list dflex">
+			<scroll-view class="left" scroll-y="true">
+				<view class="flex f28 item active">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+				<view class="flex f28 item">111</view>
+			</scroll-view>
+			<scroll-view class="right flex1 bgcfff" scroll-y="true">
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+				<view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view><view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view><view class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+					<view class="flex1 djcsb flex-column">
+						<view class="f28 c333">陕西红富士苹果水果1000斤新鲜脆甜</view>
+						<view class="djcsb">
+							<text class="f28 cff1">￥60.00</text>
+							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		
+		</view>
+    </view>

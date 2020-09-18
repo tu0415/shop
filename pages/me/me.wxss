@@ -1,0 +1,79 @@
+page {
+  background-color: #f1f1f1;
+}
+.me .user-info {
+  height: 400rpx;
+}
+.me .user-info .user-cont {
+  padding-top: 110rpx;
+  padding-left: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.me .user-info .user-img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.me .user-info .user-name {
+  font-size: 34rpx;
+  color: #fff;
+  margin-top: 8rpx;
+  margin-bottom: 16rpx;
+}
+.me .user-info .check {
+  height: 94rpx;
+  margin: 0rpx auto;
+  width: 690rpx;
+}
+.me .user-info .check .text {
+  color: #6e4800;
+  font-size: 30rpx;
+}
+.me .user-info .userInfo-btn {
+  margin-top: 130rpx;
+  font-size: 28rpx;
+}
+.me .group {
+  height: 90rpx;
+  padding-right: 12rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.me .group .invite {
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #ff3939;
+  border-radius: 35rpx;
+  color: #fff;
+  font-size: 26rpx;
+  margin-right: 0;
+}
+.me .share .share-btn {
+  height: 120rpx;
+  background-color: none;
+}
+.me .share .share-img {
+  height: 120rpx;
+}
+.me .order {
+  padding: 40rpx 10px 30rpx;
+}
+.me .team {
+  padding: 40rpx 10px 30rpx;
+}
+.me .menu {
+  padding-top: 50rpx;
+  margin-bottom: 40rpx;
+}
+.me .service {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+.me button.service::after {
+  border: none;
+}

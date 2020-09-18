@@ -1,0 +1,64 @@
+  <view class="allOrder plr30 bgcf1f1">
+        <view class="adress-box bgcfff daic plr30 br20 ">
+            <van-icon name="location-o" size="50rpx" color="red" />
+            <view class="plr30">
+                <view class="dflex" style="align-items: flex-end;">
+                    <text class="f32 c333" style="margin-right:25rpx">{{info.name}}</text>
+                    <text class="f28 c999">{{info.phone}}</text>
+                </view>
+                <view class="f28 c333 mt20">{{info.receiverAddress}}</view>
+            </view>
+            <!-- <van-icon name="arrow" /> -->
+        </view>
+        <view class="list-box  ">
+            <view class="bgcfff br20 mb10  list">
+                <view class="left  djcsb mb10" style="width:100%" wx:for="{{info.orderInfoList}}" wx:key="*this">
+                    <image class="wh160 mr20 br20" src="{{item.goodsPic}}"></image>
+                    <view class="flex1 dflex flex-column djcsb" style=" padding-bottom: 20rpx">
+                        <view class="f26 mt5 djcai">
+                            <text class="f28">{{item.goodsName}}</text>
+                            <!-- <text class="ff1D  f24"></text> -->
+                        </view>
+                        <!-- <view class="f24 c999 mt5 ">5斤装</view> -->
+                        <view class="f22 c999 djcai">
+                            <text class="f36 ff1D" wx:if="{{info.payWay == 1}}">￥{{item.goodsPrice}}</text>
+                            <text wx:else>{{item.goodsPrice}}积分</text>
+                            <text class="c999  f24">X{{item.goodsQuantity}}</text>
+                        </view>
+                    </view>
+                </view>
+                <!-- <text class=" bold f34">-300</text> -->
+                <view  wx:if="{{info.payWay == 1}}" class="f28 daic jcfe bde5e5 f36 ff1D" style="padding:15rpx 0 20rpx">实付:￥{{info.orderAmount}}</view>
+                <view wx:else class="f28 daic jcfe bde5e5 f36 ff1D" style="padding:15rpx 0 20rpx">实付:{{info.orderAmount}}积分</view>
+                <view style="padding-top:30rpx">
+                    <text class="f34 c333  ">订单信息</text>
+                    <view class="f26 djcai mt20 mb20">
+                        <text class="c999">订单编号：</text>
+                        <view class="f26 djcai flex1">
+                            <text class="c333">{{info.orderCode}}</text>
+                            <text class="c999" data-num="{{info.orderCode}}" bindtap="copy">复制</text>
+                        </view>
+                    </view>
+                    <view wx:if="{{info.expressNumber}}" class="f26 djcai mt20 mb20">
+                        <text class="c999">快递单号：</text>
+                        <view class="f26 djcai flex1">
+                            <text class="c333">{{info.expressNumber || ''}}</text>
+                            <text class="c999" data-num="{{info.expressNumber}}" bindtap="copy">复制</text>
+                        </view>
+                    </view>
+                    <view class="f26 djcai mt20 mb20">
+                        <text class="c999">下单日期：</text>
+                        <view class="f26 djcai flex1">
+                            <text class="c333">{{info.createTime || ''}}</text>
+                        </view>
+                    </view>
+                    <view wx:if="{{info.confirmTime}}" class="f26 djcai mt20 mb20">
+                        <text class="c999">收货日期：</text>
+                        <view class="f26 djcai flex1">
+                            <text class="c333">{{info.confirmTime || ''}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>

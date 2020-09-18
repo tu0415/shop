@@ -1,0 +1,77 @@
+page {
+    height: 100%;
+    // background-color: #F1F1F1;
+    .top-fixed {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    .search {
+        height: 88rpx;
+        .search-input {
+            width: 440rpx;
+            height: 60rpx;
+            background: rgba(242, 242, 242, 0.2);
+            border-radius: 30rpx;
+            font-size: 28rpx;
+            padding-left: 86rpx;
+        }
+        .back {
+            margin: 0 20rpx;
+        }
+        .search-icon {
+            left: 110rpx;
+        }
+    }
+    .history {
+        .record {
+            padding: 50rpx 0 40rpx;
+        }
+        .history-item {
+            height: 70rpx;
+            background: #fff;
+            border-radius: 35rpx;
+            font-size: 28rpx;
+            color: #333333;
+            padding: 0 40rpx;
+            display: inline-block;
+            line-height: 70rpx;
+            margin: 0 20rpx 20rpx 0;
+        }
+    }
+    .tab-box {
+        .tab {
+            color: #333333;
+            .tab-item {
+                height: 100rpx;
+            }
+            .tab-item.active {
+                color: #ff1e1e;
+            }
+        }
+    }
+    .shop-list {
+        padding-top: 240rpx;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        // height: ~'calc(100vh - 10rpx)';
+        // height: 100%;
+        background-color: #f1f1f1;
+        min-height: 100vh;
+        padding-left: 30rpx;
+        padding-right: 30rpx;
+        .shop-list-item {
+            width: 336rpx;
+            height: 480rpx;
+            .name {
+                margin: 18rpx;
+            }
+            .price {
+                margin-left: 24rpx;
+                margin-bottom: 20rpx;
+            }
+        }
+    }
+}

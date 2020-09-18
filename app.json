@@ -1,14 +1,74 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/home/home",
+        "pages/car/car",
+        "pages/me/me",
+        "pages/msiteListe/siteList",
+        "pages/classify/classify",
+        "pages/address/siteList/siteList",
+        "pages/orderPay/orderPay",
+        "pages/address/addSite/addSite",
+        "pages/address/editSite/editSite",
+        "pages/shop/shopDetail/shopDetail",
+        "compontent/model/model",
+        "pages/search/search",
+        "pages/order/orderList/orderList",
+        "pages/order/orderDetail/orderDetail",
+        "pages/collect/collect",
+        "pages/feedback/feedback",
+        "pages/notice/noticeList/noticeList",
+        "pages/notice/noticeDetail/noticeDetail",
+        "pages/about/about",
+        "pages/wallet/balance/balance",
+        "pages/wallet/application/application",
+        "pages/wallet/withdrawRecord/withdrawRecord",
+        "pages/integral/integral",
+        "compontent/loginModal/loginModal",
+        "pages/team/team"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "海浪严选",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#333333",
+        "position": "bottom",
+        "color": "#999999",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "static/images/tab01.png",
+                "selectedIconPath": "static/images/tab001.png"
+            },
+            {
+                "pagePath": "pages/classify/classify",
+                "text": "分类",
+                "iconPath": "static/images/tab02.png",
+                "selectedIconPath": "static/images/tab002.png"
+            },
+            {
+                "pagePath": "pages/team/team",
+                "text": "团队",
+                "iconPath": "static/images/tab02.png",
+                "selectedIconPath": "static/images/tab002.png"
+            },
+            {
+                "pagePath": "pages/car/car",
+                "text": "购物车",
+                "iconPath": "static/images/tab03.png",
+                "selectedIconPath": "static/images/tab003.png"
+            },
+            {
+                "pagePath": "pages/me/me",
+                "text": "我的",
+                "iconPath": "static/images/tab04.png",
+                "selectedIconPath": "static/images/tab004.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
 }

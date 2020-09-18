@@ -1,0 +1,18 @@
+<view class="wrap">
+	<!-- <view bindtap="showModal">
+		<text>{{value}}</text>
+		<icon class="arrow"></icon>
+	</view> -->
+
+	<!-- modal  -->
+	<view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+		<view class="modal-cancel" bindtap="hideModal"></view>
+		<view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+			<!--  -->
+		
+				<image  class='Mcancel close' bindtap='mCancel'  src="/static/images/delete.png"></image>
+			
+			<slot></slot>
+		</view>
+	</view>
+</view>

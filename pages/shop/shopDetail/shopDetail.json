@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-popup": "../../../compontent/vant/popup/index"
+  },
+  "navigationBarTitleText": "商品详情",
+  "navigationBarBackgroundColor": "#FFFFFF"
+}

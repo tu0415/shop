@@ -1,0 +1,14 @@
+<view class="loginModal h100 pr">
+        <view wx:if="{{isModal}}" class="count-box pr">
+            <view class=" count br20 pr">
+                <view class=" txt">
+                    <view class="f34 nologin">您还未登录</view>
+                    <view class="f28 mt20 txt">请先登录再进行操作</view>
+                </view>
+                <view class="djcai mt50 btn-box">
+                    <view class="btn flex" bindtap="close">暂不登录</view>
+                    <button open-type="getUserInfo" class=" fff userInfo-btn btn flex" bindgetuserinfo="hanleGetUserInfo">立即登录</button>
+                </view>
+            </view>
+        </view>
+    </view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+	  "van-circle": "../../compontent/vant/circle/index"
+  },
+  "navigationBarTitleText": "团队"
+}

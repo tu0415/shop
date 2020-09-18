@@ -1,0 +1,31 @@
+  <view class="balance plr30 bgcf1f1">
+        <view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
+                <view class="info bgcf1f1 mrl30 pr br20 djcai fff">
+                    <view>
+                        <view class="f36 bold fff">余额:{{userInfo.memberBalance || 0}}</view>
+                        <view class="mt10 f24 opacity5">最低{{minTransfer}}元起提</view>
+                    </view>
+                    <navigator url="/pages/me/balanceWithdraw?serviceWeixin={{serviceWeixin}}" hover-class="none" class="f32 withdraw flex">
+                        提现
+                    </navigator>
+                </view>
+            <view  class=" bgcf1f1" style="padding:20rpx 0rpx;">
+                <text class="f34 ">余额明细</text>
+            </view>
+        </view>
+        <view style="padding-top:260rpx">
+            <view wx:for="{{list}}" wx:key="index" class="mb20"  style="padding:0 4rpx">
+                <view class="bgcfff br20 list-item ">
+                    <view class="djcai">
+                        <text wx:if="{{item.balanceType == 1}}" class="f30">提现</text>
+                        <text wx:if="{{item.balanceType == 2}}" class="f30">分红</text>
+                         <text class="f32">{{item.balanceAmountName}}</text>
+                    </view>
+                    <view class="djcai mt20">
+                        <text class="f30 c999">{{item.createTime || ''}}</text>
+                         <text class="f32 c999">余额：{{item.balance}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "loginModal": "../../compontent/loginModal/loginModal",
+    "van-circle": "../../compontent/vant/circle/index"
+
+  },
+  "navigationBarTitleText": "我的"
+}

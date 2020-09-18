@@ -1,0 +1,74 @@
+page {
+  background-color: #f1f1f1;
+}
+.orderPay {
+  padding-top: 20rpx;
+}
+.orderPay .distribution {
+  padding: 30rpx 20rpx;
+}
+.orderPay .distribution .distribution-select .select-item {
+  height: 60rpx;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 30rpx;
+  color: #999999;
+  padding: 0 20rpx;
+}
+.orderPay .distribution .distribution-select .select-item.active {
+  height: 60rpx;
+  background: #ffffff;
+  border: 2rpx solid #ff3939;
+  border-radius: 30rpx;
+  color: #ff3939;
+}
+.orderPay .adress-box {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.orderPay .count {
+  padding-bottom: 90rpx;
+}
+.orderPay .shop-info {
+  padding: 20rpx 25rpx 20rpx 20rpx;
+}
+.orderPay .shop-info .specification {
+  border-radius: 50rpx;
+  padding: 12rpx 25rpx;
+  display: inline-block;
+  margin: 10rpx 0;
+  font-size: 26rpx;
+}
+.orderPay .shop-info .number-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10rpx;
+}
+.orderPay .shop-info .number-box .btn {
+  width: 50rpx;
+  height: 5r0px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5rpx;
+}
+.orderPay .shop-info .number-box .number {
+  width: 120rpx;
+  height: 50rpx;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5rpx;
+  text-align: center;
+}
+.orderPay .bottom {
+  bottom: 0;
+  padding: 15rpx 20rpx 8rpx 0;
+  justify-content: flex-end;
+}
+.orderPay .bottom .pay {
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin-left: 20rpx;
+}

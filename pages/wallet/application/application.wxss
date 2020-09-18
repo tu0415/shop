@@ -1,0 +1,32 @@
+page {
+  height: 100%;
+  background-color: #f1f1f1;
+}
+page .balanceWithdraw {
+  padding-top: 90rpx;
+}
+page .count {
+  padding: 70rpx 60rpx;
+}
+page .count .record {
+  right: 30rpx;
+  top: 30rpx;
+}
+page .count .balance {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #999999;
+  padding: 25rpx 0;
+}
+page .count .btn {
+  margin-top: 90rpx;
+  height: 80rpx;
+  width: 546rpx;
+  border-radius: 40rpx;
+}
+page .copy {
+  width: 90rpx;
+  height: 40rpx;
+  border: 2rpx solid #999999;
+  border-radius: 40rpx;
+}

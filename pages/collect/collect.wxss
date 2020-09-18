@@ -1,0 +1,36 @@
+page {
+  height: 100%;
+  background-color: #f1f1f1;
+}
+page .meCollect .menu {
+  top: 0;
+  height: 80rpx;
+  width: 690rpx;
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+page .meCollect .list-item {
+  padding: 20rpx;
+}
+page .meCollect .list {
+  padding-top: 90rpx;
+  padding-bottom: 90rpx;
+}
+page .meCollect .buy-box {
+  padding: 14rpx 30rpx 14rpx 90rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+page .meCollect .buy-box .warn {
+  background-color: #fff !important;
+  width: 150rpx;
+  border-radius: 35rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  border: 1px solid #c9c9c9;
+  color: #333;
+}

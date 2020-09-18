@@ -1,0 +1,29 @@
+
+<view calss="siteList bgcf1f1">
+    <view class="shipping h100  bgcf1f1 pt20">
+        <view class="bgcf1f1 list-box plr30" wx:if="{{addressList.length}}" style="">
+            <view wx:for="{{addressList}}" wx:key="*this" class="list br20 bgcfff mb20  djcai" data-name="{{item.name}}" data-id="{{item.id}}" data-phone="{{item.phone}}" data-address="{{item.address}}" data-isdefault="{{item.isDefault}}" data-addressDetail="{{item.addressDetail}}" bindtap="goEditAddressEvt">
+                <view class="list-left  flex1" style="margin-right:80rpx;">
+                    <view class="alfe dflex">
+                        <view class="djcsb alfe">
+                            <text class="f34 mr15">{{item.name}}</text>
+                            <text class="f28 c999">{{item.phone}}</text>
+                        </view>
+                    </view>
+                    <view class="mt20">
+                        {{item.address}}{{item.addressDetail}}
+                    </view>
+                </view>
+                <view class="list-right ">
+                    <text wx:if="{{item.isDefault == 1}}" class="cff1d">默认</text>
+                    <!-- <van-icon name="arrow" class="mt20" /> -->
+                </view>
+            </view>
+        </view>
+
+        <view class="flex">还没有收货地址哟</view>
+        <view class="bgcf1f1  f34 fff position-fixed btn">
+            <navigator url="/pages/me/address" hover-class="none" class="add flex">添加新地址</navigator>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,107 @@
+<view class="team plr30 pt20 bgcf1f1 h100">
+	<view class="bgcfff br20 pb40" >
+		<view class="title daic bde5e5">
+			<image class="wh30 mr30" src="/static/footer/tab001.png" />
+			<text class="f30 c333 flex">
+				我的团队
+			</text>
+		</view>
+		<view class="item flex mt40 ">
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">
+					3000
+				</view>
+				<view class="f26 mt30">
+					今日新增
+				</view>
+			</view>
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">
+					3000
+				</view>
+				<view class="f26 mt30">
+					今日新增
+				</view>
+			</view>
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">
+					3000
+				</view>
+				<view class="f26 mt30">
+					今日新增
+				</view>
+			</view>
+		</view>
+    </view>
+    <view class="bgcfff br20 mt20 pb40">
+		<view class="title daic bde5e5">
+			<image class="wh30 mr30" src="/static/footer/tab001.png" />
+			<text class="f30 c333 flex">
+				我的团队
+			</text>
+		</view>
+		<view class="item flex mt40 pb40">
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">
+					3000
+				</view>
+				<view class="f26 mt30">
+					今日新增
+				</view>
+			</view>
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">
+					3000
+				</view>
+				<view class="f26 mt30">
+					今日新增
+				</view>
+			</view>
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">
+					3000
+				</view>
+				<view class="f26 mt30">
+					今日新增
+				</view>
+			</view>
+		</view>
+    </view>
+    <view class="capital br20 flex flex-column">
+        <view class="f50 cfff bold">
+            88806.64
+        </view>
+		<view class="f28 cfff">
+			消费分红池
+		</view>
+          
+    </view>
+	<view class="bgcfff br20 taam-box">
+		<view class="title daic bde5e5">
+			<image class="wh30 mr30" src="/static/footer/tab001.png" />
+			<text class="f30 c333 flex">
+				我的团队
+			</text>
+		</view>
+		<view class="item flex mt40 pb40 flex taam-title">
+			<view class="" style="flex: 0.5;">排名</view>
+			<view  class="flex" style="flex: 2;">会员</view>
+			<view  class="flex" style="flex: 1;">分红券</view>
+			<view  class="flex" style="flex: 1;">占比</view>
+		</view>
+		<view class="flex taam-title">
+			<view style="flex: 0.5;">1</view>
+			<view class="daic" style="flex: 2;">
+				<image class="wh60 br50 ml15" src="../../static/images/add.png"></image>
+				<text class="f26">一路有你...</text>
+			</view>
+			<view class="flex" style="flex: 1;">6000</view>
+			<view class="flex" style="flex: 1;">
+				 <van-circle value="{{ 30 }}" text="20%" size="35" layer-color="#E2E2E2" color="#FFA210" />
+			</view>
+		</view>
+	</view>
+	
+      
+
+</view>
