@@ -58,7 +58,6 @@ page .car .buy-box .warn {
   line-height: 70rpx;
   font-size: 30rpx;
   margin-left: 10rpx;
-  background-color: #ff3c3c;
 }
 page .nodata {
   padding: 100rpx 0;

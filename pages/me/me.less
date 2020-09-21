@@ -3,17 +3,17 @@ page {
 }
 .me {
     .user-info {
-        height: 400rpx;
+        height: 320rpx;
         .user-cont {
-            padding-top: 110rpx;
+            padding-top: 65rpx;
             padding-left: 70rpx;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
         }
         .user-img {
-            width: 100rpx;
-            height: 100rpx;
+            width: 130rpx;
+            height: 130rpx;
             border-radius: 50%;
            margin-right: 20rpx;
         }
@@ -53,12 +53,32 @@ page {
         }
     }
     .share {
-        .share-btn {
+        .share-bg {
+            left: 0;
+            top: 0;
             height: 120rpx;
-            background-color: none;
+            width: 100%;
+            z-index: 11;
+        }
+        .share-btn {
+            background-color: #f1f1f1 !important;
+            padding: 0;
+            line-height: 0;
+            .text {
+                top: 40rpx;
+                left: 56rpx;
+            }
+            .more {
+                top: 80rpx;
+                left: 56rpx;
+            }
+        }
+        .share-btn::after{
+            border:none;
         }
         .share-img {
             height: 120rpx;
+            width: 100%;
         }
     }
     .order {

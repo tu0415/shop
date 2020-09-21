@@ -1,4 +1,7 @@
-// compontent/loginModal/loginModal.js
+import http from "../../utils/request"
+import {login} from "../../api/index"
+import {wslogin} from "../../utils/utils"
+
 Component({
     properties:{
         isModal:{
@@ -15,9 +18,23 @@ Component({
 
     methods:{
         close() {
-            // this.isModal = false
             this.triggerEvent('close', false)
         },
+       async hanleGetUserInfo(e) {
+        // this.triggerEvent('accomplish', false)
+        console.log(111)
+        console.log(this.properties.isModal)
+        this.isModal = false
+
+        return
+            let {avatarUrl,province,city,nickName} = e.detail.userInfo
+            let code = await wslogin()
+            let {data} = await http.quest(login.openid,{code})
+            await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city},'post')
+            let res = await http.quest(login.getUserInfo,{openid:data.openid},'post')
+            wx.setStorageSync('userInfo',res.data)
+           
+        }
     },
 
     /**
@@ -66,7 +83,7 @@ Component({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        console.log(1111)
     },
 
     /**

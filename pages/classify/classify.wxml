@@ -6,131 +6,19 @@
       
         <view class="list dflex">
 			<scroll-view class="left" scroll-y="true">
-				<view class="flex f28 item active">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
-				<view class="flex f28 item">111</view>
+				<view wx:for="{{leftData}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" class="flex f28 item  {{tabIndex == index ? 'active' :''}}" bindtap="changTab">{{item.name}}</view>
 			</scroll-view>
-			<scroll-view class="right flex1 bgcfff" scroll-y="true">
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
+			<scroll-view scroll-top="{{scrollTop}}" class="right flex1 bgcfff"  bindscrolltolower="loadMore" scroll-y="true">
+				<navigator url="/pages/shop/shopDetail/shopDetail?id={{item.id}}" hover-class="none" wx:for="{{rightData}}" wx:key="index" class="right-item djcsb">
+					<image class="wh160 br20 mr20" src="{{item.thumb}}" mode=""></image>
 					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
+						<view class="f28 c333">{{item.name}}</view>
 						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
+							<text class="f28 cff1">￥{{item.markprice}}</text>
 							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
 						</view>
 					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
-				<view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view><view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果10斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view><view class="right-item djcsb">
-					<image class="wh160 br20 mr20" src="../../static/footer/tab001.png" mode=""></image>
-					<view class="flex1 djcsb flex-column">
-						<view class="f28 c333">陕西红富士苹果水果1000斤新鲜脆甜</view>
-						<view class="djcsb">
-							<text class="f28 cff1">￥60.00</text>
-							<image class="wh40" src="../../static/footer/tab001.png" mode=""></image>
-						</view>
-					</view>
-				</view>
+				</navigator>
 			</scroll-view>
 		
 		</view>

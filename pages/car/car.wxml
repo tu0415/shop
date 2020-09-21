@@ -1,39 +1,37 @@
+   <wxs module="filters" src="../../utils/filter.wxs"></wxs>
   <view class="car bgcf1f1 h100">
         <!-- 购物车非空状态 -->
         <view wx:if="{{list.length != 0}}">
-            <view class="address djcai plr30" wx:if="{{false}}">
+            <view class="address djcai plr30" wx:if="{{true}}">
                 <view class="address-left daic">
                     <!-- <image class="wh40 mr30" src="/static/images/tab001.png"></image> -->
                     <van-icon name="location-o" size="30rpx" />
                     <view class="f26 c333 ff1D">{{address}}</view>
                 </view>
-                <text class="f26">编辑</text>
+                <text wx:if="{{!iscompile}}" class="f26" bindtap="compile">编辑</text>
+                <text wx:else class="f26" bindtap="compile">完成</text>
+
             </view>
-            <view class="list " style="padding-top:20rpx">
+            <view class="list " >
                 <view class="list-item  bgcfff br20 mb20" wx:for="{{list}}" wx:key="index">
                     <view class="daic">
-                        <image wx:if="{{!item.isCheck}}" bindtap="slect" data-id="{{item.id}}" class="wh40 mr40" src="/static/images/wxz@2x.png"></image>
-                        <image wx:else bindtap="slect" data-id="{{item.id}}" class="wh40 mr40" src="/static/images/xz@2x.png"></image>
+                        <image wx:if="{{!item.isCheck}}" bindtap="slect" data-goodsid="{{item.goods_id}}" class="wh40 mr40" src="/static/images/wxz@2x.png"></image>
+                        <image wx:else bindtap="slect" data-goodsid="{{item.goods_id}}" class="wh40 mr40" src="/static/images/xz@2x.png"></image>
                         <view class="info dflex flex1">
-                            <image class="shop-img br20 mr30" src="{{item.goodsPic}}"></image>
+                            <image class="shop-img br20 mr30" src="{{item.thumb}}"></image>
                             <view class="flex1 djcsb flex-column" style="padding:10rpx 0;">
-                                <p class="f28 c333">{{item.goodsName}}</p>
-                                <!-- <p class="specification bgcf1f1 c999"></p> -->
+                                <p class="f28 c333">{{item.name}}</p>
                                 <view class="djcai">
-                                    <text class="f28 ff1D">￥{{item.goodsPrice}}</text>
-                                    <text class="f26 c999">X{{item.goodsQuantity}}</text>
+                                    <text class="f28 ff1D">￥{{item.markprice}}</text>
+                                    <text class="f26 c999">X{{item.number}}</text>
                                 </view>
                             </view>
                         </view>
                     </view>
                     <view class="number-box ">
-                        <!-- <view class="btn flex" data-id="{{item.id}}" data-operation="{{-1}}" bindtap="addNum">-</view> -->
-                        <view class="btn flex" data-id="{{item.id}}" data-goodsid="{{item.goodsId}}" data-num="{{item.goodsQuantity}}" data-operation="{{-1}}" bindtap="updateCartItemEvt">-</view>
-
-                        <input type="number" class="number " v-model="item.goodsQuantity" disabled />
-                        <!-- <view class="btn flex" data-id="{{item.id}}" data-operation="{{1}}" bindtap="addNum">+</view> -->
-                        <view class="btn flex" data-id="{{item.id}}" data-goodsid="{{item.goodsId}}" data-num="{{item.goodsQuantity}}" data-operation="{{1}}" bindtap="updateCartItemEvt">+</view>
-
+                        <view class="btn flex" data-id="{{item.id}}" data-goodsid="{{item.goods_id}}" data-num="{{item.goodsQuantity}}" data-operation="{{-1}}" bindtap="updateCartItemEvt">-</view>
+                        <input type="number" class="number " value="{{item.number}}"  disabled />
+                        <view class="btn flex" data-id="{{item.id}}" data-goodsid="{{item.goods_id}}" data-num="{{item.goodsQuantity}}" data-operation="{{1}}" bindtap="updateCartItemEvt">+</view>
                     </view>
                 </view>
             </view>
@@ -43,10 +41,18 @@
                     <image wx:else="{{allSlect}}" bindtap="allSlectEvt" class="wh40 mr30" src="/static/images/xz@2x.png"></image>
                     <text>全选</text>
                 </view>
-                 <view class="buy-box-right daic">
-                    <text class="ff1D">合计：￥{{price}}</text>
-                    <view bindtap="goPay" class="warn flex fff">确定</view>
+                 <view wx:if="{{!iscompile}}" class="buy-box-right daic">
+                    <text class="ff1D">合计：￥{{totalPrice}}</text>
+                     <!-- <text class="ff1D">合计：￥{{filters.toFix(totalPrice,1)}}</text> -->
+
+                    <view bindtap="goPay" class="warn bgcffd c333 flex fff">确定</view>
                 </view> 
+                <view wx:else class="buy-box-right daic">
+                <view class="">合计
+                    <text class="ff1D">{{totalNumber || 0}}</text>件宝贝</view>
+                <button type="default" class="warn" bindtap="detelEvt">删除</button>
+			
+            </view>
             </view>
         </view>
         <!-- 购物车空状态 -->
@@ -56,8 +62,8 @@
                 <!-- <text></text> -->
             </view>
         </view>
-        <!-- <view wx:if="{{isModal}}">
-            <loginModal :isModal="isModal" :parentId="parentId" @close="close" @accomplish="accomplish"></loginModal>
-        </view> -->
+        <view wx:if="{{isModal}}">
+            <loginModal :isModal="isModal" :parentId="parentId" bind:close="close" bind:accomplish="accomplish"></loginModal>
+        </view>
 
     </view>

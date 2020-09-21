@@ -15,6 +15,7 @@ page {
 }
 .home .top-fixex .search-box navigator {
   height: 70rpx;
+  padding-left: 32rpx;
 }
 .home .top-fixex .scroll-wrapper {
   width: 100%;
@@ -61,12 +62,23 @@ page {
   width: 100%;
   height: 235rpx;
 }
+.coupons .title {
+  top: 56rpx;
+  z-index: 11;
+  left: 184rpx;
+}
+.coupons .subheading {
+  top: 130rpx;
+  left: 184rpx;
+  padding: 8rpx 12rpx;
+  border-radius: 20rpx;
+}
 .hot {
   width: 100%;
   background-color: #ffe96d;
   text-align: center;
   padding-bottom: 20rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 50rpx;
   border-radius: 40rpx;
 }
 .hot .hotTitle {
@@ -79,17 +91,18 @@ page {
 }
 .hot .hotContent .hotList {
   width: 100%;
-  height: 300rpx;
+  height: 230rpx;
   border-radius: 10rpx;
   background-color: #FFFFFF;
 }
 .hot .hotContent .hotList .hotListleft {
-  width: 280rpx;
+  width: 230rpx;
   height: 100%;
 }
 .hot .hotContent .hotList .hotListleft image {
   width: 100%;
   height: 100%;
+  border-radius: 20rpx 0 0 20rpx;
 }
 .hot .hotContent .hotList .hotListright {
   display: flex;
@@ -100,7 +113,6 @@ page {
   position: relative;
 }
 .hot .hotContent .hotList .hotListright .listTitle {
-  font-size: 30rpx;
   margin-bottom: 20rpx;
 }
 .hot .hotContent .hotList .hotListright .price {
@@ -109,7 +121,7 @@ page {
 }
 .hot .hotContent .hotList .hotListright .sold {
   font-size: 25rpx ;
-  color: #d0d0d0;
+  color: #CCCCCC;
 }
 .hot .hotContent .hotList .hotListright .snap {
   position: absolute;
@@ -118,7 +130,7 @@ page {
   width: 150rpx;
   height: 60rpx;
   line-height: 60rpx;
-  border-radius: 20rpx;
+  border-radius: 60rpx;
   text-align: center;
   background-color: #ffd02b;
 }
@@ -134,7 +146,7 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 50rpx;
+  margin-right: 100rpx;
 }
 .hot .switch .switchLeft image {
   width: 50rpx;
@@ -166,7 +178,7 @@ page {
   justify-content: space-between;
 }
 .selection .selectionList .list {
-  width: 49%;
+  width: 336rpx;
   background-color: #ffffff;
   text-align: left;
   margin-bottom: 20rpx;
@@ -175,6 +187,7 @@ page {
 }
 .selection .selectionList .list .listImg {
   width: 100%;
+  height: 336rpx;
 }
 .selection .selectionList .list .listImg image {
   width: 100%;

@@ -1,27 +1,29 @@
 
-const baseUrl = 'http://8.210.134.217:8201'
-// const baseUrl = 'https://wztp.zhumengxuanang.com' // 正式
-const quest = (url, parameter,method,header) => {
-    wx.showLoading({title: '加载中', mask: true,  success: res => {}});
+const baseUrl = 'http://192.168.0.120/index.php/api'
+let questTotal = 0
+const quest = (url, parameter,method) => {
+    questTotal++
+    if(questTotal == 1) {
+        wx.showLoading({title: '加载中', mask: true,  success: res => {}});
+    }
+    
     return new Promise((resolve, reject) => {
         wx.request({
             url: `${baseUrl}${url}`,
             data: parameter,
             method: method,
-            // header:{"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-            header: header == 1 ? {"Content-Type": "application/json; charset=UTF-8"}:{"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-            dataType: 'json',
+            header:{"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
+             dataType: 'json',
             success: res => {
-                if(res.data.code == 200) {
+                if(res.data.status == 1) {
                     resolve(res.data);
-                } else {
-                    console.log(res)
+                } else if(res.data.status == 0){
                     wx.showToast({
-                        title: '服务器错误,请重试',
+                        title: res.data.msg,
                         icon: 'none',
                         duration: 2000
                     });
-                    reject(res.data);
+                    resolve(res.data);
                 }
                
             },
@@ -34,14 +36,18 @@ const quest = (url, parameter,method,header) => {
                 reject(err);
             },
             complete: () => {
-                wx.hideLoading();
+                questTotal--
+                if(questTotal == 0) {
+                    wx.hideLoading();
+                }
+               
             }
         });
     });
 
 };
 
-export  {
+export default {
     quest,
     baseUrl
 }

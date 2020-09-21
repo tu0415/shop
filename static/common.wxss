@@ -3,6 +3,13 @@ scroll-view,view,text,swiper,swiper-item {
     padding:0;
     box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+    display: none;
+    }
 .df {
     display: flex;
 }
@@ -316,6 +323,10 @@ page {
     color: #1985FF
 }
 
+.cfb6{
+    color: #FB6F12;
+}
+
 .f20 {
     font-size: 20rpx;
 }
@@ -356,6 +367,10 @@ page {
     font-size: 44rpx;
 }
 
+.f50 {
+    font-size: 50rpx;
+}
+
 .bgcfff {
     background-color: #fff;
 }
@@ -382,6 +397,10 @@ page {
 
 .ml15 {
     margin-left: 15rpx;
+}
+
+.ml20 {
+    margin-left: 20rpx;
 }
 
 .ml30 {
@@ -478,9 +497,16 @@ page {
     padding-bottom: 10rpx;
 }
 
+.pt15 {
+    padding-top: 15rpx;
+}
 
 .pt20 {
     padding-top: 20rpx;
+}
+
+.pt40 {
+    padding-top: 40rpx;
 }
 .pl10 {
     padding-left: 10rpx;
@@ -489,12 +515,20 @@ page {
     padding-left: 20rpx;
 }
 
+.pl25 {
+    padding-left: 25rpx;
+}
+
 .pl30 {
     padding-left: 30rpx;
 }
 
 .pr30 {
     padding-right: 30rpx;
+}
+
+.pb15 {
+    padding-bottom: 15rpx;
 }
 
 .pb20 {

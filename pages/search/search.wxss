@@ -13,7 +13,6 @@ page .search {
 page .search .search-input {
   width: 440rpx;
   height: 60rpx;
-  background: rgba(242, 242, 242, 0.2);
   border-radius: 30rpx;
   font-size: 28rpx;
   padding-left: 86rpx;

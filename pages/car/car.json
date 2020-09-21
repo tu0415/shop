@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "loginModal": "../../compontent/loginModal/loginModal"
+  },
   "navigationBarTitleText": "购物车"
 }

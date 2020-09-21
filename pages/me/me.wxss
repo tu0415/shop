@@ -2,18 +2,18 @@ page {
   background-color: #f1f1f1;
 }
 .me .user-info {
-  height: 400rpx;
+  height: 320rpx;
 }
 .me .user-info .user-cont {
-  padding-top: 110rpx;
+  padding-top: 65rpx;
   padding-left: 70rpx;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 .me .user-info .user-img {
-  width: 100rpx;
-  height: 100rpx;
+  width: 130rpx;
+  height: 130rpx;
   border-radius: 50%;
   margin-right: 20rpx;
 }
@@ -51,12 +51,32 @@ page {
   font-size: 26rpx;
   margin-right: 0;
 }
-.me .share .share-btn {
+.me .share .share-bg {
+  left: 0;
+  top: 0;
   height: 120rpx;
-  background-color: none;
+  width: 100%;
+  z-index: 11;
+}
+.me .share .share-btn {
+  background-color: #f1f1f1 !important;
+  padding: 0;
+  line-height: 0;
+}
+.me .share .share-btn .text {
+  top: 40rpx;
+  left: 56rpx;
+}
+.me .share .share-btn .more {
+  top: 80rpx;
+  left: 56rpx;
+}
+.me .share .share-btn::after {
+  border: none;
 }
 .me .share .share-img {
   height: 120rpx;
+  width: 100%;
 }
 .me .order {
   padding: 40rpx 10px 30rpx;

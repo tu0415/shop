@@ -1,24 +1,23 @@
 <view class="home">
 	<view class="top-fixex">
 		<view class="search-box bgcffd plr30 pt20">
-			<navigator class="b20 bgcfff dfac" hover-class="none">
-				<icon class="pl30"></icon>
-				<text class="f26 c999 ">搜索您想要的商品</text>
+			<navigator url="/pages/search/search" class="b20 bgcfff dfac search" hover-class="none">
+				<icon class="icon-small pb " type="search" size="16"></icon>
+				<text class="f26 c999 ml40">搜索您想要的商品</text>
 			</navigator>
 		</view>
-
 		<view class="scroll-wrapper bgcffd pr pl30">
 			<scroll-view scroll-x="{{true}}" :scroll-into-view="scrollInto" scroll-left="{{scrollLefts}}" scroll-with-animation>
 				<view wx:for="{{list}}" wx:key="index" data-index="{{index}}" class="scroll-item {{tabIndex == index ? 'active':''}} " :id="{{'tab' + index}}" bindtap="onChange">{{item.name}}</view>
 			</scroll-view>
-			<view class="pb bgcffd icon dfcc" >
-				<image class="wh40 mr20" src="../../static/images/zwss.png" ></image>
-			</view>
+			<navigator url="/pages/classify/classify" open-type="switchTab" hover-class="none"  class="pb bgcffd icon dfcc" >
+				<image class="wh60 mr20" mode="widthFix" src="../../static/images/flss@2x.png" ></image>
+			</navigator>
 		</view>
 	</view>
-	<swiper class="swiper-parent-box" current="{{tabIndex}}" bindchange="onChangeTab" 
-	style="height:{{scrollH}}px">
-		<swiper-item class="swiper-parent" item-id="" wx:for="{{list}}" wx:key="index">
+	<swiper class="swiper-parent-box bgcf1f1" current="{{tabIndex}}" bindchange="onChangeTab" 
+	style="height:{{scrollH}}px;">
+		<swiper-item class="swiper-parent" item-id="" wx:for="{{list}}" wx:key="index" style="height: {{scrollH}}px">
 			<scroll-view scroll-y="{{true}}" class="plr30 count " style="height: {{scrollH}}px" >
 				
 				<view class="">
@@ -36,29 +35,37 @@
 						</swiper-item>
 					</swiper>
 					
-					<view class="coupons" style="margin-bottom: 30rpx;">
-						<image class="w100" src="../../static/images/youhuijuan.png" mode="widthFix"></image>
+					<view class="coupons pr" style="margin-bottom: 30rpx;">
+						<image class="w100 " mode="widthFix" src="../../static/images/cz_b@2x.png" ></image>
+						<view class="f50 fff bold pb title">充值送分红卷</view>
+						<view class="f22 bgcfff fff bold pb subheading cfb6">持有分红卷参与每周平台分红</view>
 					</view>
 				
-					<view class="hot"> 
-						<h2 class="hotTitle">热卖</h2>
-						<view class="hotContent">
-							<view class="hotList df">
+					<view class="hot pt40"> 
+						<view class="hotTitle flex">
+							<image class="wh40" src="../../static/images/youhuijuan.png" ></image>
+							<view class="ml40 mr40 f34">
+								热点
+							</view>
+							<image class="wh40" src="../../static/images/youhuijuan.png" ></image>
+						</view>
+						<view class="hotContent ">
+							<view class="hotList df br20">
 								<view class="hotListleft">
-									<image src="../../static/images/remai1.png" mode=""></image>
+									<image  src="../../static/images/remai1.png" mode=""></image>
 								</view>
 								<view class="hotListright">
-									<text class="listTitle">2020年新款女装气质女神范衣服白色露肩长裙</text>
-									<text class="price">$228.00</text>
+									<text class="listTitle f28">2020年新款女装气质女神范衣服白色露肩长裙</text>
+									<text class="price f24">$228.00</text>
 								    <text class="sold">已售2688</text>
-									<view class="snap">
+									<view class="snap f26">
 										立即抢购
 									</view>
 								</view>
 							</view>
 						</view>
 						<view class="hotContent">
-							<view class="hotList df">
+							<view class="hotList df br20">
 								<view class="hotListleft">
 									<image src="../../static/images/remai2.png" mode=""></image>
 								</view>
@@ -98,58 +105,19 @@
 					</view>
 					
 					<view class="selection">
-						<h2 class="selectionTitle">为你精选</h2> 
+						<view class="selectionTitle f34">为您精选</view> 
 						<view class="selectionList">
 							<view class="list">
 								<view class="listImg">
 									<image src="../../static/images/wntj1.png" mode="widthFix"></image>
 								</view>
-								<text class="seltitle plr30">安岳黄柠檬6斤</text>
+								<view class="seltitle plr30 f28 mt25">安岳黄柠檬6斤</view>
 								<view class="selprice plr30">
 									<text class="pr">$49.00</text>
-									<text class="so">已售100</text>
+									<text class="so f28">已售100</text>
 								</view>
 							</view>
-							<view class="list">
-								<view class="listImg">
-									<image src="../../static/images/wntj1.png" mode="widthFix"></image>
-								</view>
-								<text class="seltitle plr30">安岳黄柠檬6斤</text>
-								<view class="selprice plr30">
-									<text class="pr">$49.00</text>
-									<text class="so">已售100</text>
-								</view>
-							</view>
-							<view class="list">
-								<view class="listImg">
-									<image src="../../static/images/wntj1.png" mode="widthFix"></image>
-								</view>
-								<text class="seltitle plr30">安岳黄柠檬6斤</text>
-								<view class="selprice plr30">
-									<text class="pr">$49.00</text>
-									<text class="so">已售100</text>
-								</view>
-							</view>
-							<view class="list">
-								<view class="listImg">
-									<image src="../../static/images/wntj1.png" mode="widthFix"></image>
-								</view>
-								<text class="seltitle plr30">安岳黄柠檬6斤</text>
-								<view class="selprice plr30">
-									<text class="pr">$49.00</text>
-									<text class="so">已售100</text>
-								</view>
-							</view>
-							<view class="list" style="">
-								<view class="listImg">
-									<image src="../../static/images/wntj1.png" mode="widthFix"></image>
-								</view>
-								<text class="seltitle plr30">安岳黄柠檬6斤</text>
-								<view class="selprice plr30">
-									<text class="pr">$49.00</text>
-									<text class="so">已售100</text>
-								</view>
-							</view>
+							
 						</view>
 					</view>
 				   </view>

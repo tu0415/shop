@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "van-popup": "../../../compontent/vant/popup/index"
+    "van-popup": "../../../compontent/vant/popup/index",
+    "van-stepper": "../../../compontent/vant/stepper/index",
+    "loginModal": "../../../compontent/loginModal/loginModal"
   },
   "navigationBarTitleText": "商品详情",
   "navigationBarBackgroundColor": "#FFFFFF"

@@ -2,15 +2,15 @@
         <view class="top-fixed">
             <view style="height:{{navH}}px" class="bgcfff"></view>
             <view class="search bgcfff daic">
-            <image class="wh40" bindtap="back" style="margin:0 20rpx" src="../../static/images/wntj1.png"></image>
+            <image class="wh45" bindtap="back" style="margin:0 20rpx" src="../../static/images/zj.png"></image>
                 <icon class="icon-small pb search-icon" type="search" size="16"></icon>
-                <input class="search-input c333" confirm-type="search" bindconfirm="seacch" type="text" placeholder="搜索您喜欢的商品..." placeholder-style="color:opacity: .5;" />
+                <input class="search-input c333 bgcf5f" confirm-type="search" bindconfirm="seacch" type="text" placeholder="搜索您喜欢的商品..." placeholder-style="color:opacity: .5;" />
             </view>
 
             <view class="history mlr30" >
                 <view class="djcai record ">
                     <text class="f28">历史搜索</text>
-                    <van-icon name="delete" size="18" />
+                    <image class="wh45" bindtap="back"  src="../../static/images/del@2x.png"></image>
                 </view>
                 <view class="dflex flex-wrap">
                     <view class="history-item flex bgcf5f">芒果</view>

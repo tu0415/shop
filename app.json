@@ -53,20 +53,20 @@
             {
                 "pagePath": "pages/team/team",
                 "text": "团队",
-                "iconPath": "static/images/tab02.png",
-                "selectedIconPath": "static/images/tab002.png"
-            },
-            {
-                "pagePath": "pages/car/car",
-                "text": "购物车",
                 "iconPath": "static/images/tab03.png",
                 "selectedIconPath": "static/images/tab003.png"
             },
             {
-                "pagePath": "pages/me/me",
-                "text": "我的",
+                "pagePath": "pages/car/car",
+                "text": "购物车",
                 "iconPath": "static/images/tab04.png",
                 "selectedIconPath": "static/images/tab004.png"
+            },
+            {
+                "pagePath": "pages/me/me",
+                "text": "我的",
+                "iconPath": "static/images/tab05.png",
+                "selectedIconPath": "static/images/tab005.png"
             }
         ]
     },

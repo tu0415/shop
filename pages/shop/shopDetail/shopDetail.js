@@ -1,13 +1,18 @@
-// pages/shop/shopDetail/shopDetail.js
+import http from "../../../utils/request"
+import {goods,car} from "../../../api/index"
+import {isLogin} from "../../../utils/utils"
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-       show:true
-
+       show:false,
+       shopInfo:{},
+       isModal:false,
+       number:1,
     },
+    id:'',
     openPopup() {
         this.hideModal()
     },
@@ -17,13 +22,60 @@ Page({
             hideFlag:false
         })
     },
+    async getData(id) {
+        let {data} = await http.quest(goods.goodsDetail,{id,openid:wx.getStorageSync('userInfo').openid})
+        console.log(data)
+        this.setData({shopInfo:data})
+    },
+    
+    async collectEvt(e) { // 点击收藏
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({isModal:islogin})
+        if(this.data.shopInfo.collection == 0) {
+            let {data} = await http.quest(goods.goodsCollection,{goods_id:this.id,openid:wx.getStorageSync('userInfo').openid})
+            this.setData({"shopInfo.collection":1})
+        } else {
+            let {data} = await http.quest(goods.goodsList,{goods_id:this.id,openid:wx.getStorageSync('userInfo').openid})
+            this.setData({"shopInfo.collection":0})
+        }
+    },
 
+    close() {
+        this.setData({isModal:false})  
+       
+     },
+     accomplish() {
+         this.setData({isModal:false}) 
+     },
+
+    async openPopup() {
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({isModal:islogin})
+        if(!this.data.isModal) {
+            this.setData({show:true})
+        }
+       
+     },
+
+     closePopup() {
+        this.setData({show:false})
+     },
+     onChange(e) {
+        this.setData({number:e.detail})
+     },
+
+     async addCarEvt() {
+         let data =  await http.quest(car.addCart,{number:this.data.number,goods_id:this.data.shopInfo.id,openid:wx.getStorageSync('userInfo').openid})
+         wx.showToast({title: data.msg, icon: 'success',mask: true,});
+         this.closePopup()
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onLoad(options) {
+        this.getData(options.id)
+        this.id = options.id
     },
 
     /**

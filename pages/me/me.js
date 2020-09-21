@@ -1,24 +1,41 @@
-// pages/me/me.js
+
+import http from "../../utils/request"
+import {login} from "../../api/index"
+import {isLogin} from "../../utils/utils"
+
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        isModal:true
+        isModal:false,
+        userInfo:{}
     },
 
     close() {
-        console.log(11)
-       this.setData({
-            isModal:false
-       })  
+       this.setData({isModal:false})  
+       wx.showTabBar()
+    },
+    accomplish() {
+        this.setData({isModal:false,userInfo:wx.getStorageSync('userInfo')}) 
+        wx.showTabBar()
+    },
+
+    async loign() {
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({isModal:islogin})
+         if (this.data.isModal) {
+            wx.hideTabBar()
+        } else {
+           
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onLoad(options) {
+        this.setData({userInfo:wx.getStorageSync('userInfo')}) 
     },
 
     /**
@@ -31,8 +48,8 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
+    onShow() {
+        
     },
 
     /**

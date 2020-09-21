@@ -2,24 +2,12 @@
 import common from "./request"
 
 // 判断是否登录
-export const isLogin = () => {
+export const isLogin = (isModal) => {
     return new Promise((resolve, reject) => {
-        if (wx.getStorageSync('userInfo').nickName) {
-            resolve();
+        if (wx.getStorageSync('userInfo').openid) {
+            resolve(isModal = false);
         } else {
-            wx.showToast({
-                title: '还没有登录哟', //提示的内容,
-                icon: 'success', //图标,
-                mask: true, //显示透明蒙层，防止触摸穿透,
-            });
-            // setTimeout(() => {
-            //     // wx.switchTab({
-            //     //     url: '/pages/me/me'
-            //     // })
-            //     // wx.navigateTo({
-            //     //     url: '/pages/login/login'
-            //     // });
-            // }, 800)
+            resolve(isModal = true);
         }
     })
 }
