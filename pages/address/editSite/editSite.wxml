@@ -1,18 +1,19 @@
  <view class="editSite bgcfff plr30">
         <view class="bde5e5 daic item">
             <text class="name">收货人</text>
-            <input type="text" class="flex1"  bindinput="usernameInput" placeholder-class="ccc" placeholder="请输入收货人姓名"/>
+            <input type="text" class="flex1" value="{{addressInfo.name}}"  bindinput="usernameInput" placeholder-class="ccc" placeholder="请输入收货人姓名"/>
         </view>
         <view class="bde5e5 daic item">
             <text class="name">联系电话</text>
-            <input type="number" class="flex1"  bindinput="phoneInput" placeholder-class="ccc" placeholder="请输入联系电话"/>
+            <input type="number" class="flex1" value="{{addressInfo.phone}}" bindinput="phoneInput" placeholder-class="ccc" placeholder="请输入联系电话"/>
         </view>
         <view class="section bde5e5 daic item">
             <text class="name">所在地</text>
-            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" style="width:77%">
+            <picker mode="region" bindchange="bindRegionChange" value="{{addressInfo.province + addressInfo.city + addressInfo.area}}" custom-item="{{customItem}}" style="width:77%">
                 <view class="djcai">
                     <view class="picker">
-                        {{region[0]}}，{{region[1]}}，{{region[2]}}
+                        <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+                        {{addressInfo.province + addressInfo.city + addressInfo.area}}
                     </view>
                     <van-icon name="arrow" size="18" color="#C6C6C6" />
                 </view>
@@ -20,17 +21,17 @@
 
         </view>
         <view class="bde5e5 detail-adress">
-            <textarea name="" id="" cols="30" rows="10" bindinput="addressInput"  placeholder-class="ccc" placeholder="输入详细地址、门牌号、小区..."></textarea>
+            <textarea name="" id="" cols="30" rows="10" value="{{addressInfo.address}}" bindinput="addressInput"  placeholder-class="ccc" placeholder="输入详细地址、门牌号、小区..."></textarea>
         </view>
         <view class="djcai mt30 mb40">
             <text>设为默认</text>
             <!-- <image class="wh40 " src="/static/images/img03@2x.png"></image> -->
              <view class="body-view">
-                <switch checked="{{switch1Checked}}" color="#FFD02C" bindchange="switch1Change"/>
+                <switch checked="{{addressInfo.default == 1 ? true:false}}" color="#FFD02C" bindchange="switch1Change"/>
             </view>
         </view>
         <view class=" f34 c333 ">
-            <view class="add flex bgcffd" bindtap="addressEvt">保存地址</view>
+            <view class="add flex bgcffd" bindtap="upSiteEvt">保存修改</view>
         </view>
          <view class=" f34 c333 mt40">
             <view class="add flex bgcfff bde5" bindtap="addressEvt">删除收货地址</view>

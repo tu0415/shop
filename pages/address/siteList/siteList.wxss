@@ -15,7 +15,6 @@ page .shipping .list-right {
 page .shipping .add {
   width: 660rpx;
   height: 80rpx;
-  background: #ff3939;
   border-radius: 40rpx;
   margin: 0 auto;
 }

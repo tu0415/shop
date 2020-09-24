@@ -1,32 +1,78 @@
-// pages/team/team.js
+import http from "../../utils/request"
+import { team } from "../../api/index"
+import { isLogin } from "../../utils/utils"
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        isModal: false,
+        teamInfo:{},
+        commission:{},
+        pool:{},
+        ranking:[]
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
+    async getTeamData() {
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({ isModal: islogin })
+        if (this.data.isModal) {
+           
+        } else {
+            let { data } = await http.quest(team.teamInfo, {openid: wx.getStorageSync('userInfo').openid })
+            this.setData({teamInfo:data})
+        }
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    async getCommissionProfitData() {
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({ isModal: islogin })
+        if (this.data.isModal) {
+           
+        } else {
+            let { data } = await http.quest(team.commissionProfit, {openid: wx.getStorageSync('userInfo').openid })
+            this.setData({commission:data})
+        }
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
+    async getPoolData() {
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({ isModal: islogin })
+        if (this.data.isModal) {
+           
+        } else {
+            let { data } = await http.quest(team.pool, {openid: wx.getStorageSync('userInfo').openid })
+            this.setData({pool:data})
+        }
+    },
+    async geRankingData() {
+        let islogin = await isLogin(this.data.isModal)
+        this.setData({ isModal: islogin })
+        if (this.data.isModal) {
+           
+        } else {
+            let { data } = await http.quest(team.ranking, {openid: wx.getStorageSync('userInfo').openid })
+            this.setData({ranking:data})
+        }
+    },
 
+    close() {
+        this.setData({ isModal: false })
+    },
+    accomplish() {
+        this.setData({ isModal: false })
+        this.getTeamData()
+    },
+   
+    onLoad(options) {
+        this.getCommissionProfitData()
+        this.getPoolData()
+        this.geRankingData()
+    },
+    onReady() {
+        this.getTeamData()
+    },
+
+   
+    onShow() {
+        
     },
 
     /**
@@ -57,10 +103,5 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+   
 })

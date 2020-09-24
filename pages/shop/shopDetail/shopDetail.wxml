@@ -7,7 +7,7 @@
                         </swiper-item>
                 </swiper>
             </view>
-            <view class="ff1D  price">￥{{shopInfo.sales}}</view>
+            <view class="ff1D  price">￥{{shopInfo.markprice}}</view>
             <view class="f28 c333 pl30 name">{{shopInfo.desc}}</view>
         </view>
       
@@ -22,15 +22,15 @@
                     <text class="f28 c333 ">客服</text>
                 </button>
                 <view class="f28 c333 daic">
-                    <image wx:if="{{shopInfo.collection == 0}}" data-collection="{{shopInfo.collection}}" class="wh40 mr10" src="/static/images/sc@2x.png" bindtap="collectEvt"></image>
-                    <image wx:else class="wh40 mr10" src="/static/images/collect-select.png" data-collection="{{shopInfo.collection}}" bindtap="collectEvt"></image>
+                    <image wx:if="{{shopInfo.collection == 0}}" data-collection="{{shopInfo.collection}}" class="wh40 mr10" src="/static/images/sc_xq@2x.png" bindtap="collectEvt"></image>
+                    <image wx:else class="wh40 mr10" src="/static/images/sc_xq02@2x.png" data-collection="{{shopInfo.collection}}" bindtap="collectEvt"></image>
                     <text>收藏</text>
                 </view>
             </view>
           
-            <view  class="bottom-right f28 fff flex">
-                <view class="join flex flex1 " bindtap="openPopup">加入购物车</view>
-                <view class="buy flex flex1 " bindtap="openPopup('2')">立即购买</view>
+            <view  class="bottom-right f28  flex">
+                <view class="join flex flex1 " data-type="{{1}}"  bindtap="openPopup">加入购物车</view>
+                <view class="buy flex flex1 " data-type="{{2}}" bindtap="openPopup">立即购买</view>
             </view>
         </view>
         <van-popup show="{{ show }}" closeable position="bottom" bind:close="closePopup" >
@@ -49,7 +49,7 @@
                     </view>
                 </view>
                 <view class="btn-box flex mt10">
-                    <view class="flex f32 fff bgcff3 btn" bindtap="addCarEvt" style="width:660rpx">确认</view>
+                    <view class="flex f32 c333 bgcffd btn" bindtap="addCarEvt" style="width:660rpx">确认</view>
                 </view>
             </view>
 

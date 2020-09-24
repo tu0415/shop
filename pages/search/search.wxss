@@ -43,6 +43,11 @@ page .tab-box .tab {
 page .tab-box .tab .tab-item {
   height: 100rpx;
 }
+page .tab-box .tab .tab-item .icon {
+  width: 15rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+}
 page .tab-box .tab .tab-item.active {
   color: #ff1e1e;
 }

@@ -4,12 +4,6 @@ page {
 .home {
   height: 100%;
 }
-.home .top-fixex {
-  position: fixed;
-  width: 100%;
-  height: 180rpx;
-  z-index: 10;
-}
 .home .top-fixex .search-box {
   height: 100rpx;
 }
@@ -24,9 +18,9 @@ page {
   padding-bottom: 25rpx;
   padding-top: 10rpx;
   padding-right: 75rpx;
+  height: 80rpx;
 }
 .home .top-fixex .scroll-wrapper .scroll-item {
-  width: 140rpx;
   border-radius: 12rpx;
   display: inline-block;
 }
@@ -44,12 +38,17 @@ page {
   right: 0;
   top: 0;
 }
-.home .swiper-parent-box {
-  padding-top: 180rpx;
+.home .swiper-parent-box .home-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .home .swiper-parent-box .count {
   z-index: 99;
   position: relative;
+}
+.home .swiper-parent-box .count .swiper-item-img {
+  height: 300rpx;
 }
 .home .swiper-parent-box .count .swiper-box {
   width: 100%;
@@ -75,7 +74,7 @@ page {
 }
 .hot {
   width: 100%;
-  background-color: #ffe96d;
+  background: linear-gradient(-35deg, #FFAE38, #FFEA77, #FFAD38);
   text-align: center;
   padding-bottom: 20rpx;
   margin-bottom: 50rpx;
@@ -192,6 +191,7 @@ page {
 .selection .selectionList .list .listImg image {
   width: 100%;
   height: 80rpx;
+  border-radius: 20rpx 20rpx 0px 0px;
 }
 .selection .selectionList .list .seltitle {
   font-size: 30rpx;

@@ -18,10 +18,10 @@
         "scopeDataCheck": false,
         "uglifyFileName": false,
         "checkInvalidKey": true,
-        "checkSiteMap": true,
+        "checkSiteMap": false,
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
-        "useMultiFrameRuntime": true,
+        "useMultiFrameRuntime": false,
         "useApiHook": true,
         "babelSetting": {
             "ignore": [],
@@ -36,7 +36,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.12.2",
-    "appid": "wxc0e6a54dcbecbb5c",
+    "appid": "wx26416f63fc5c81ae",
     "projectname": "shop",
     "debugOptions": {
         "hidedInDevtools": []
@@ -77,10 +77,10 @@
                     "scene": null
                 },
                 {
-                    "id": -1,
+                    "id": 1,
                     "name": "订单支付",
                     "pathName": "pages/orderPay/orderPay",
-                    "query": "",
+                    "query": "type=1",
                     "scene": null
                 },
                 {
@@ -98,10 +98,10 @@
                     "scene": null
                 },
                 {
-                    "id": -1,
+                    "id": 4,
                     "name": "编辑收货地址",
                     "pathName": "pages/address/editSite/editSite",
-                    "query": "",
+                    "query": "id=13",
                     "scene": null
                 },
                 {
@@ -140,7 +140,7 @@
                     "scene": null
                 },
                 {
-                    "id": -1,
+                    "id": 10,
                     "name": "我的",
                     "pathName": "pages/me/me",
                     "query": "",
@@ -161,10 +161,10 @@
                     "scene": null
                 },
                 {
-                    "id": -1,
+                    "id": 13,
                     "name": "订单详情",
                     "pathName": "pages/order/orderDetail/orderDetail",
-                    "query": "",
+                    "query": "id=6",
                     "scene": null
                 },
                 {
@@ -234,6 +234,13 @@
                     "id": -1,
                     "name": "团队",
                     "pathName": "pages/team/team",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 24,
+                    "name": "充值",
+                    "pathName": "pages/wallet/recharge/recharge",
                     "query": "",
                     "scene": null
                 }

@@ -9,7 +9,7 @@ page .orderDetail .tab-box .tab .tab-item {
   height: 100rpx;
 }
 page .orderDetail .tab-box .tab .tab-item.active {
-  color: #ff1e1e;
+  color: #FFD02C;
 }
 page .orderDetail .list {
   padding: 27rpx 27rpx 20rpx 20rpx;

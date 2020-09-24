@@ -1,18 +1,25 @@
-// pages/order/orderDetail/orderDetail.js
+import http from "../../../utils/request"
+import {order} from "../../../api/index"
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        info:[]
+    },
+    async getOrderList(id) {
+        let {data} = await http.quest(order.orderDetail,{id})
+        this.setData({info:data})
 
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onLoad(options) {
+        this.getOrderList(options.id)
     },
 
     /**
@@ -57,10 +64,5 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+    
 })

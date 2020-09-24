@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loginModal": "../../../compontent/loginModal/loginModal"
+  },
+  "navigationBarTitleText": "充值"
+}

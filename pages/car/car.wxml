@@ -5,7 +5,7 @@
             <view class="address djcai plr30" wx:if="{{true}}">
                 <view class="address-left daic">
                     <!-- <image class="wh40 mr30" src="/static/images/tab001.png"></image> -->
-                    <van-icon name="location-o" size="30rpx" />
+                    <!-- <van-icon name="location-o" size="30rpx" /> -->
                     <view class="f26 c333 ff1D">{{address}}</view>
                 </view>
                 <text wx:if="{{!iscompile}}" class="f26" bindtap="compile">编辑</text>
@@ -15,8 +15,8 @@
             <view class="list " >
                 <view class="list-item  bgcfff br20 mb20" wx:for="{{list}}" wx:key="index">
                     <view class="daic">
-                        <image wx:if="{{!item.isCheck}}" bindtap="slect" data-goodsid="{{item.goods_id}}" class="wh40 mr40" src="/static/images/wxz@2x.png"></image>
-                        <image wx:else bindtap="slect" data-goodsid="{{item.goods_id}}" class="wh40 mr40" src="/static/images/xz@2x.png"></image>
+                        <image wx:if="{{item.choice != 1}}" bindtap="slect" data-id="{{item.id}}" data-goodsid="{{item.goods_id}}" class="wh40 mr40" src="/static/images/wxz@2x.png"></image>
+                        <image wx:else bindtap="slect" data-goodsid="{{item.goods_id}}" data-id="{{item.id}}" class="wh40 mr40" src="/static/images/xz@2x.png"></image>
                         <view class="info dflex flex1">
                             <image class="shop-img br20 mr30" src="{{item.thumb}}"></image>
                             <view class="flex1 djcsb flex-column" style="padding:10rpx 0;">
@@ -37,15 +37,15 @@
             </view>
             <view class="buy-box bgcfff djcai">
                 <view class="buy-box-left daic">
-                    <image wx:if="{{allSlect}}" bindtap="allSlectEvt" class="wh40 mr30" src="/static/images/wxz@2x.png"></image>
-                    <image wx:else="{{allSlect}}" bindtap="allSlectEvt" class="wh40 mr30" src="/static/images/xz@2x.png"></image>
+                    <image wx:if="{{allSlect}}" data-choice="{{1}}" bindtap="allSlectEvt" class="wh40 mr30" src="/static/images/wxz@2x.png"></image>
+                    <image wx:else data-choice="{{2}}" bindtap="allSlectEvt" class="wh40 mr30" src="/static/images/xz@2x.png"></image>
                     <text>全选</text>
                 </view>
                  <view wx:if="{{!iscompile}}" class="buy-box-right daic">
                     <text class="ff1D">合计：￥{{totalPrice}}</text>
                      <!-- <text class="ff1D">合计：￥{{filters.toFix(totalPrice,1)}}</text> -->
 
-                    <view bindtap="goPay" class="warn bgcffd c333 flex fff">确定</view>
+                    <view  bindtap="goPay"  class="warn bgcffd c333 flex fff">确定</view>
                 </view> 
                 <view wx:else class="buy-box-right daic">
                 <view class="">合计

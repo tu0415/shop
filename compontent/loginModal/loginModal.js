@@ -2,11 +2,16 @@ import http from "../../utils/request"
 import {login} from "../../api/index"
 import {wslogin} from "../../utils/utils"
 
+
 Component({
     properties:{
         isModal:{
             type:Boolean,
             value:true
+        },
+        pid:{
+            type:String,
+            value:''
         }
     },
     /**
@@ -21,19 +26,21 @@ Component({
             this.triggerEvent('close', false)
         },
        async hanleGetUserInfo(e) {
-        // this.triggerEvent('accomplish', false)
-        console.log(111)
-        console.log(this.properties.isModal)
-        this.isModal = false
-
-        return
-            let {avatarUrl,province,city,nickName} = e.detail.userInfo
-            let code = await wslogin()
-            let {data} = await http.quest(login.openid,{code})
-            await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city},'post')
-            let res = await http.quest(login.getUserInfo,{openid:data.openid},'post')
-            wx.setStorageSync('userInfo',res.data)
-           
+            try {
+                let {avatarUrl,province,city,nickName} = e.detail.userInfo
+                let code = await wslogin()
+                let {data} = await http.quest(login.openid,{code})
+                if(this.pid) {
+                    await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city,pid:this.pid},'post')
+                } else {
+                    await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city},'post')
+                }
+                let res = await http.quest(login.getUserInfo,{openid:data.openid},'post')
+                wx.setStorageSync('userInfo',res.data)
+                this.triggerEvent('accomplish',false)
+            } catch (error) {
+                wx.showToast({title: '登录失败',});
+            }
         }
     },
 
@@ -83,13 +90,8 @@ Component({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        console.log(1111)
+       
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+   
 })

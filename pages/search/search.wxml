@@ -4,46 +4,46 @@
             <view class="search bgcfff daic">
             <image class="wh45" bindtap="back" style="margin:0 20rpx" src="../../static/images/zj.png"></image>
                 <icon class="icon-small pb search-icon" type="search" size="16"></icon>
-                <input class="search-input c333 bgcf5f" confirm-type="search" bindconfirm="seacch" type="text" placeholder="搜索您喜欢的商品..." placeholder-style="color:opacity: .5;" />
+                <input class="search-input c333 bgcf5f" confirm-type="search" bindconfirm="startSearch"   type="text" value="{{value}}" placeholder="搜索您喜欢的商品..." placeholder-style="color:opacity: .5;" />
             </view>
 
-            <view class="history mlr30" >
+            <view class="history mlr30" wx:if="{{!classData.length}}">
                 <view class="djcai record ">
                     <text class="f28">历史搜索</text>
                     <image class="wh45" bindtap="back"  src="../../static/images/del@2x.png"></image>
                 </view>
-                <view class="dflex flex-wrap">
+                <!-- <view class="dflex flex-wrap">
                     <view class="history-item flex bgcf5f">芒果</view>
                     <view class="history-item flex">芒果</view>
                     <view class="history-item flex">芒果</view>
                     <view class="history-item flex">芒果</view>
                     <view class="history-item flex">芒果</view>
-                </view>
+                </view> -->
             </view>
-            <view  class="tab-box bgcf1f1" wx:if="{{false}}">
+            <view  class="tab-box bgcf1f1" wx:else>
                 <view class="tab flex">
                     <view class="f28 flex flex1 tab-item {{tabIndex ===1 ? 'active':'' }}">
                         <text  data-id="{{1}}" bindtap="select">综合</text>
                     </view>
                     <view class="f28 flex flex1 tab-item {{tabIndex ===2 ? 'active':'' }}">
                         <text  data-id="{{2}}" bindtap="select">销量</text>
-                        <image wx:if="{{isSold}}" bindtap="sort" data-sold="{{'sold'}}" data-sort="{{'sort'}}" class="wh40 mr30 ml5" src="/static/images/sort_up.png"></image>
-                        <image wx:else bindtap="sort" data-sold="{{'sold'}}" data-sort="{{'dest'}}" class="wh40 mr30 ml5" src="/static/images/sort_next.png"></image>
+                        <image wx:if="{{isSold}}" bindtap="sort" data-sold="{{'sold'}}" data-sort="{{'sort'}}" class="icon mr30 ml5" src="/static/images/sort_up.png"></image>
+                        <image  wx:else bindtap="sort" data-sold="{{'sold'}}" data-sort="{{'dest'}}" class="icon mr30 ml5" src="/static/images/sort_next.png"></image>
                     </view>
                     <view class="f28 flex flex1 tab-item {{tabIndex ===3 ? 'active':'' }}">
                         <text data-id="{{3}}" bindtap="select">价格</text>
-                        <image wx:if="{{isPrice}}" bindtap="sort" data-price="{{'price'}}" data-sort="{{'sort'}}" class="wh40 mr30 ml5" src="/static/images/sort_up.png"></image>
-                        <image wx:else bindtap="sort" data-price="{{'price'}}" data-sort="{{'dest'}}" class="wh40 mr30 ml5" src="/static/images/sort_next.png"></image>
+                        <image wx:if="{{isPrice}}" bindtap="sort" data-price="{{'price'}}" data-sort="{{'sort'}}" class="icon mr30 ml5" src="/static/images/sort_up.png"></image>
+                        <image wx:else bindtap="sort" data-price="{{'price'}}" data-sort="{{'dest'}}" class="icon mr30 ml5" src="/static/images/sort_next.png"></image>
                     </view>
                 </view>
             </view>
 
         </view>
         <view  class="shop-list bgcf1f1  ">
-            <navigator wx:for="{{classData}}" wx:key="*this" url="/pages/home/shopDetail?id={{item.id}}" class="shop-list-item bgcfff br20 mb20">
-                <image class="wh336 back" style="border-radius: 20rpx 20rpx 0" src="{{item.pic1}}"></image>
-                <view class="name f28 c333">{{item.goodsName}}</view>
-                <view class="price f28 ff1D">￥{{item.goodsPrice}}</view>
+            <navigator wx:for="{{classData}}" wx:key="*this" url="/pages/shop/shopDetail/shopDetail?id={{item.id}}" hover-class="none" class="shop-list-item bgcfff br20 mb20">
+                <image class="wh336 back" style="border-radius: 20rpx 20rpx 0" src="{{item.thumb}}"></image>
+                <view class="name f28 c333">{{item.name}}</view>
+                <view class="price f28 ff1D">￥{{item.markprice}}</view>
             </navigator>
         </view>
          <!-- <view wx:if="{{classData.length}}" class="shop-list bgcf1f1  ">

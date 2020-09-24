@@ -1,86 +1,65 @@
 <view class="team plr30 pt20 bgcf1f1 ">
 	<view class="bgcfff br20 pb40" >
 		<view class="title daic bde5e5 pl25">
-			<image class="wh30 mr30" src="/static/footer/tab001.png" />
-			<view class="f30 c333 flex">
-				我的团队
-			</view>
+			<image class="wh40 mr30" src="/static/images/td02@2x.png" />
+			<view class="f30 c333 flex">我的团队</view>
 		</view>
 		<view class="item flex mt40 ">
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">
-					3000
-				</view>
-				<view class="f26 mt30">
-					今日新增
-				</view>
+				<view class="f30 c198">{{userInfo.new_member || 0}}</view>
+				<view class="f26 mt30">今日新增</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">
-					3000
-				</view>
-				<view class="f26 mt30">
-					今日新增
-				</view>
+				<view class="f30 c198">{{userInfo.total || 0}}</view>
+				<view class="f26 mt30">团队总数</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">
-					3000
-				</view>
-				<view class="f26 mt30">
-					今日新增
-				</view>
+				<view class="f30 c198">{{userInfo.levle1 || 0}}</view>
+				<view class="f26 mt30">一级会员</view>
+			</view>
+			<view class="flex1 flex flex-column">
+				<view class="f30 c198">{{userInfo.levle2 || 0}}</view>
+				<view class="f26 mt30">二级会员</view>
 			</view>
 		</view>
     </view>
     <view class="bgcfff br20 mt20 pb40">
 		<view class="title daic bde5e5 pl25">
-			<image class="wh30 mr30" src="/static/footer/tab001.png" />
-			<view class="f30 c333 flex">
-				我的团队
-			</view>
+			<image class="wh30 mr30" src="/static/images/yj@2x.png" />
+			<view class="f30 c333 flex">佣金收益</view>
 		</view>
 		<view class="item flex mt40 pb40">
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">
-					3000
-				</view>
-				<view class="f26 mt30">
-					今日新增
-				</view>
+				<view class="f30 cff3">{{commission.today || 0}}</view>
+				<view class="f26 mt30">今日收益</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">
-					3000
-				</view>
-				<view class="f26 mt30">
-					今日新增
-				</view>
+				<view class="f30 cff3">{{commission.month || 0}}</view>
+				<view class="f26 mt30">本月收益</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">
-					3000
-				</view>
-				<view class="f26 mt30">
-					今日新增
-				</view>
+				<view class="f30 cff3">{{commission.total || 0}}</view>
+				<view class="f26 mt30">累计收益</view>
 			</view>
 		</view>
     </view>
-    <view class="capital br20 flex flex-column">
-        <view class="f50 cfff bold">
-            88806.64
+    <view class="capital br20 flex flex-column pr mt20 mb20 br20">
+		<image class="pb capital-bg br20" src="/static/images/fhc@2x.png"></image>
+        <view class="pb">
+			<view class="f50 fff bold ">
+            {{pool.amount}}
         </view>
-		<view class="f28 cfff">
+		<view class="f28 fff mt20">
 			消费分红池
+		</view>
 		</view>
           
     </view>
 	<view class="bgcfff br20 taam-box">
 		<view class="title daic bde5e5 pl25">
-			<image class="wh30 mr30" src="/static/footer/tab001.png" />
+			<image class="wh30 mr30" src="/static/images/fhj@2x.png" />
 			<view class="f30 c333 flex">
-				我的团队
+				分红券排行榜
 			</view>
 		</view>
 		<view class="item flex mt40 pb40 flex taam-title">
@@ -89,27 +68,22 @@
 			<view  class="flex" style="flex: 1;">分红券</view>
 			<view  class="flex" style="flex: 1;">占比</view>
 		</view>
-		<view class="flex taam-title">
-			<view style="flex: 0.5;">1</view>
+		<view class="flex taam-title" wx:for="{{ranking}}" wx:key="index">
+			<view style="flex: 0.5;">{{index + 1}}</view>
 			<view class="daic" style="flex: 2;">
-				<image class="wh60 br50 ml15" src="../../static/images/add.png"></image>
-				<text class="f26">一路有你...</text>
+				<image class="wh60 br50 ml15 mr30" src="{{item.avatar}}"></image>
+				<text class="f26">{{item.nickname}}</text>
 			</view>
-			<view class="flex" style="flex: 1;">6000</view>
+			<view class="flex" style="flex: 1;">{{item.total_credit}}</view>
 			<view class="flex" style="flex: 1;">
-				 <van-circle value="{{ 30 }}" text="20%" size="35" layer-color="#E2E2E2" color="#FFA210" />
+				 <van-circle value="{{ item.proportion }}" text="20%" size="35" layer-color="#E2E2E2" color="#FFA210" />
 			</view>
 		</view>
-		<view class="flex taam-title">
-			<view style="flex: 0.5;">1</view>
-			<view class="daic" style="flex: 2;">
-				<image class="wh60 br50 ml15" src="../../static/images/add.png"></image>
-				<text class="f26">一路有你...</text>
-			</view>
-			<view class="flex" style="flex: 1;">6000</view>
-			<view class="flex" style="flex: 1;">
-				 <van-circle value="{{ 30 }}" text="20%" size="35" layer-color="#E2E2E2" color="#FFA210" />
-			</view>
-		</view>
+	
 	</view>
+	
+	<view wx:if="{{isModal}}">
+        <loginModal :isModal="isModal" :pid="pid" bind:close="close" bind:accomplish="accomplish"></loginModal>
+    </view>
+
 </view>

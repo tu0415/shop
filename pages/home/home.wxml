@@ -7,121 +7,95 @@
 			</navigator>
 		</view>
 		<view class="scroll-wrapper bgcffd pr pl30">
-			<scroll-view scroll-x="{{true}}" :scroll-into-view="scrollInto" scroll-left="{{scrollLefts}}" scroll-with-animation>
-				<view wx:for="{{list}}" wx:key="index" data-index="{{index}}" class="scroll-item {{tabIndex == index ? 'active':''}} " :id="{{'tab' + index}}" bindtap="onChange">{{item.name}}</view>
+			<scroll-view scroll-x="{{true}}" :scroll-into-view="scrollInto" scroll-left="{{scrollLefts}}"
+				scroll-with-animation>
+				<view wx:for="{{navBar}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
+					class="scroll-item mr40 {{tabIndex == index ? 'active':''}} " :id="{{'tab' + tabIndex}}"
+					bindtap="onChange">{{item.name}}</view>
 			</scroll-view>
-			<navigator url="/pages/classify/classify" open-type="switchTab" hover-class="none"  class="pb bgcffd icon dfcc" >
-				<image class="wh60 mr20" mode="widthFix" src="../../static/images/flss@2x.png" ></image>
+			<navigator url="/pages/classify/classify" open-type="switchTab" hover-class="none"
+				class="pb bgcffd icon dfcc">
+				<image class="wh60 mr20" mode="widthFix" src="../../static/images/flss@2x.png"></image>
 			</navigator>
 		</view>
 	</view>
-	<swiper class="swiper-parent-box bgcf1f1" current="{{tabIndex}}" bindchange="onChangeTab" 
-	style="height:{{scrollH}}px;">
-		<swiper-item class="swiper-parent" item-id="" wx:for="{{list}}" wx:key="index" style="height: {{scrollH}}px">
-			<scroll-view scroll-y="{{true}}" class="plr30 count " style="height: {{scrollH}}px" >
-				
-				<view class="">
-				   
-					<swiper :circular="true" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" style="margin-bottom: 40rpx;">
-						<swiper-item>
-							<view class="swiper-item">
-								<image class="w100 br20" src="../../static/images/lunbo.png" mode="widthFix"></image>
-							</view>
-						</swiper-item>
-						<swiper-item>
-							<view class="swiper-item">
-								<image src="../../static/images/lunbo.png" mode="widthFix"></image>
-							</view>
-						</swiper-item>
-					</swiper>
-					
-					<view class="coupons pr" style="margin-bottom: 30rpx;">
-						<image class="w100 " mode="widthFix" src="../../static/images/cz_b@2x.png" ></image>
-						<view class="f50 fff bold pb title">充值送分红卷</view>
-						<view class="f22 bgcfff fff bold pb subheading cfb6">持有分红卷参与每周平台分红</view>
-					</view>
-				
-					<view class="hot pt40"> 
-						<view class="hotTitle flex">
-							<image class="wh40" src="../../static/images/youhuijuan.png" ></image>
-							<view class="ml40 mr40 f34">
-								热点
-							</view>
-							<image class="wh40" src="../../static/images/youhuijuan.png" ></image>
-						</view>
-						<view class="hotContent ">
-							<view class="hotList df br20">
-								<view class="hotListleft">
-									<image  src="../../static/images/remai1.png" mode=""></image>
+	<swiper class="swiper-parent-box bgcf1f1" current="{{tabIndex}}" bindchange="onChangeTab"
+		style="height:{{scrollH}}px;" data-id="{{id}}" data-index="{{tabIndex}}">
+		<swiper-item class="swiper-parent" item-id="" wx:for="{{navBar}}" wx:for-item="navItem" wx:key="index">
+			<scroll-view scroll-y="{{true}}" bindscrolltolower="loadMore" class="  " style="height: {{scrollH}}px">
+				<image wx:if="{{navItem.id == 0}}" class="home-bg" style="height:256rpx;width:100%"
+					src="/static/images/sy_b@2x.png"></image>
+				<view class="count plr30">
+					<view wx:if="{{navItem.id == 0}}">
+						<swiper :circular="true" :indicator-dots="true" :autoplay="true" :interval="3000"
+							:duration="1000" style="margin-bottom: 40rpx;">
+							<swiper-item class="swiper-item-img" wx:for="{{swiperList}}" wx:key="index">
+								<view class="swiper-item br20" style="height:300rpx">
+									<image class="wh100 br20" src="{{item.thumb}}"></image>
 								</view>
-								<view class="hotListright">
-									<text class="listTitle f28">2020年新款女装气质女神范衣服白色露肩长裙</text>
-									<text class="price f24">$228.00</text>
-								    <text class="sold">已售2688</text>
-									<view class="snap f26">
-										立即抢购
+							</swiper-item>
+						</swiper>
+						<navigator url="/pages/wallet/recharge/recharge" hover-class="none" class="coupons pr"
+							style="margin-bottom: 30rpx;">
+							<image class="w100 " mode="widthFix" src="../../static/images/cz_b@2x.png"></image>
+							<view class="f50 fff bold pb title">充值送分红卷</view>
+							<view class="f22 bgcfff fff bold pb subheading cfb6">持有分红卷参与每周平台分红</view>
+						</navigator>
+						<view class="hot pt20">
+							<image class="" mode="widthFix" src="/static/images/yd@2x.png"></image>
+							<view class="hotTitle flex">
+								<image class="wh40" src="../../static/images/huo@2x.png"></image>
+								<view class="ml40 mr40 f34">
+									热卖
+								</view>
+								<image class="wh40" src="../../static/images/huo@2x.png"></image>
+							</view>
+							<view class="hotContent " wx:for="{{hotList}}" wx:key="index">
+								<view class="hotList df br20">
+									<view class="hotListleft">
+										<image src="{{item.thumb}}" mode=""></image>
+									</view>
+									<view class="hotListright">
+										<text class="listTitle f28">{{item.desc}}</text>
+										<text class="price f24">￥{{item.markprice}}</text>
+										<text class="sold f22">已售{{item.sales}}</text>
+										<navigator url="/pages/shop/shopDetail/shopDetail?id={{item.id}}"
+											hover-class="none" class="snap f26">
+											立即抢购
+										</navigator>
 									</view>
 								</view>
 							</view>
-						</view>
-						<view class="hotContent">
-							<view class="hotList df br20">
-								<view class="hotListleft">
-									<image src="../../static/images/remai2.png" mode=""></image>
+							<view class="switch">
+								<view class="switchLeft">
+									<image data-type="{{-1}}" bindtap="nextPage" src="../../static/images/zj.png"
+										mode="widthFix"></image>
 								</view>
-								<view class="hotListright">
-									<text class="listTitle">2020年新款女装气质女神范衣服白色露肩长裙</text>
-									<text class="price">$228.00</text>
-								    <text class="sold">已售2688</text>
-									<view class="snap">
-										立即抢购
-									</view>
+								<view class="switRight">
+									<image data-type="{{1}}" bindtap="nextPage" src="../../static/images/yj.png"
+										mode="widthFix"></image>
 								</view>
-							</view>
-						</view>
-						<view class="hotContent">
-							<view class="hotList df">
-								<view class="hotListleft">
-									<image src="../../static/images/remai3.png" mode=""></image>
-								</view>
-								<view class="hotListright">
-									<text class="listTitle">2020年新款女装气质女神范衣服白色露肩长裙</text>
-									<text class="price">$228.00</text>
-								    <text class="sold">已售2688</text>
-									<view class="snap">
-										立即抢购
-									</view>
-								</view>
-							</view>
-						</view>
-						<view class="switch">
-							<view class="switchLeft">
-								<image src="../../static/images/zj.png" mode="widthFix"></image>
-							</view>
-							<view class="switRight">
-								<image src="../../static/images/yj.png" mode="widthFix"></image>
 							</view>
 						</view>
 					</view>
-					
 					<view class="selection">
-						<view class="selectionTitle f34">为您精选</view> 
-						<view class="selectionList">
-							<view class="list">
+						<view wx:if="{{navItem.id == 0}}" class="selectionTitle f34">为您精选</view>
+						<view class="selectionList mt20">
+							<navigator class="list" wx:for="{{goodslist}}"
+								url="/pages/shop/shopDetail/shopDetail?id={{goodsItem.id}}" hover-class="none"
+								wx:key="index" wx:for-item="goodsItem">
 								<view class="listImg">
-									<image src="../../static/images/wntj1.png" mode="widthFix"></image>
+									<image class="shop-img" src="{{goodsItem.thumb}}" mode="widthFix"></image>
 								</view>
-								<view class="seltitle plr30 f28 mt25">安岳黄柠檬6斤</view>
+								<view class="seltitle plr30 f28 mt25">{{goodsItem.desc}}</view>
 								<view class="selprice plr30">
-									<text class="pr">$49.00</text>
-									<text class="so f28">已售100</text>
+									<text class="pr">￥{{goodsItem.markprice}}</text>
+									<text class="so f28">已售{{goodsItem.sales}}</text>
 								</view>
-							</view>
-							
+							</navigator>
 						</view>
 					</view>
-				   </view>
-
+				</view>
 			</scroll-view>
 		</swiper-item>
 	</swiper>

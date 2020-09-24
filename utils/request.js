@@ -1,12 +1,11 @@
 
-const baseUrl = 'http://192.168.0.120/index.php/api'
+// const baseUrl = 'http://192.168.0.120/index.php/api' // 本地
+const baseUrl = 'https://www.shadowultimate.club/index.php/api' // 测试
+
 let questTotal = 0
 const quest = (url, parameter,method) => {
     questTotal++
-    if(questTotal == 1) {
-        wx.showLoading({title: '加载中', mask: true,  success: res => {}});
-    }
-    
+    wx.showLoading({title: '加载中', mask: true,  success: res => {}});
     return new Promise((resolve, reject) => {
         wx.request({
             url: `${baseUrl}${url}`,

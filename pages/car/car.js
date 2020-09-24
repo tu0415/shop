@@ -1,6 +1,6 @@
 import http from "../../utils/request"
-import {car} from "../../api/index"
-import {isLogin} from "../../utils/utils"
+import { car } from "../../api/index"
+import { isLogin, showModal } from "../../utils/utils"
 Page({
 
     /**
@@ -19,98 +19,85 @@ Page({
     totalPrice: 0,
     totalNumber: 0,
     close() {
-        this.setData({isModal: false})
+        this.setData({ isModal: false })
     },
     accomplish() {
-        this.setData({isModal: false})
+        this.setData({ isModal: false })
     },
 
     compile() {
-        this.setData({iscompile: !this.data.iscompile})
+        this.setData({ iscompile: !this.data.iscompile })
     },
 
     async getCarDataEvt() {
         let islogin = await isLogin(this.data.isModal)
-        this.setData({isModal: islogin})
-        let {data} = await http.quest(car.cartList, {openid: wx.getStorageSync('userInfo').openid})
+        this.setData({ isModal: islogin })
+        let { data } = await http.quest(car.cartList, { openid: wx.getStorageSync('userInfo').openid })
         this.totalPrice = 0
-        data.forEach(element => {
-            element.isCheck = true
-            this.totalPrice += Number(element.markprice) * element.number
-        });
-        this.setData({
-            list: data,
-            totalPrice: this.totalPrice.toFixed(2),
-            totalNumber: this.totalNumber
-        })
-        this.selectAll()
+        this.totalNumber = 0
+        if (data && data.length) {
+            data.forEach(element => {
+                if (element.choice == 1) {
+                    this.totalNumber += element.number
+                    this.totalPrice += Number(element.markprice) * element.number
+                }
+            });
+            this.setData({
+                list: data,
+                totalPrice: this.totalPrice.toFixed(2),
+                totalNumber: this.totalNumber,
+                allSlect:data.some(item => {return item.choice == 2})
+            })
+           
+        }
     },
 
     async updateCartItemEvt(e) {
-        let {goodsid,operation } = e.currentTarget.dataset
+        let { goodsid, operation } = e.currentTarget.dataset
         if (operation == -1) {
-            let {data} = await http.quest(car.reduceCart, {goods_id: goodsid,number: 1,openid: wx.getStorageSync('userInfo').openid})
+            let { data } = await http.quest(car.reduceCart, { goods_id: goodsid, number: 1, openid: wx.getStorageSync('userInfo').openid })
         } else {
-            let {data} = await http.quest(car.addCart, {goods_id: goodsid,number: 1, openid: wx.getStorageSync('userInfo').openid})
+            let { data } = await http.quest(car.addCart, { goods_id: goodsid, number: 1, openid: wx.getStorageSync('userInfo').openid })
         }
         this.getCarDataEvt()
     },
 
-    slect(e) {
-        let {goodsid} = e.currentTarget.dataset
-        this.data.list.forEach(element => {
-            this.totalPrice = 0
-            if (element.goods_id == goodsid) {
-                element.isCheck = !element.isCheck
-                this.totalPrice += Number(element.markprice) * element.number
-            }
-        });
-        this.setData({
-            list: this.data.list,
-            totalPrice: this.totalPrice.toFixed(2),
-            allSlect: this.data.list.some(item => {
-                return item.isCheck != true
-            })
-        })
-        this.selectAll()
+    async slect(e) {
+        let { goodsid, id } = e.currentTarget.dataset
+        let { data } = await http.quest(car.choiceCart, { id })
+        this.getCarDataEvt()
     },
 
-    allSlectEvt() {
-        this.setData({allSlect: !this.data.allSlect})
-        this.totalPrice = 0
-        if (!this.data.allSlect) {
-            console.log(11)
-            this.data.list.forEach(item => {
-                item.isCheck = true
-                this.totalPrice += Number(item.markprice * item.number)
-            });
-            this.setData({list: this.data.list,totalPrice: this.totalPrice.toFixed(2)
-            })
+   async allSlectEvt(e) {
+        let {choice} = e.currentTarget.dataset
+        let { data } = await http.quest(car.choiceAll, { choice, openid: wx.getStorageSync('userInfo').openid })
+        this.getCarDataEvt()
+    },
+
+   
+    async detelEvt() {
+        if(this.data.list.every(item => {return item.choice == 2})) {
+            wx.showToast({title:'亲,您还没有选择商品哟',icon:'none'})
         } else {
-            this.data.list.forEach(item => {item.isCheck = falsethis.totalPrice += 0});
-            this.setData({list: this.data.list,totalPrice: this.totalPrice})
+            let ids = '';
+            const res = await showModal({ content: '是否确认删除' })
+            if (res.confirm) {
+                this.data.list.forEach(v => {if (v.choice == 1) {ids += v.id + ","}})
+                ids = ids.substring(0, ids.length - 1);
+                let { data } = await http.quest(car.clearCart, { ids, openid: wx.getStorageSync('userInfo').openid })
+                this.setData({ list: [] })
+                this.getCarDataEvt()
+            }
         }
     },
 
-    selectAll() {
-        if (this.data.list) {
-            this.totalNumber = 0
-            this.totalPrice = 0
-            let arr = this.data.list.filter(item => item.isCheck == true)
-            console.log(arr)
-            if (arr.length) {
-                arr.forEach(v => {
-                    this.totalNumber += v.number
-                    this.totalPrice += v.number * v.markprice
-                    this.setData({
-                        totalNumber: this.totalNumber,
-                        totalPrice: this.totalPrice.toFixed(2),
-                    })
-                })
-            } else {
-                this.setData({totalNumber: 0})
-            }
+    goPay() {
+        if(this.data.list.every(item => {return item.choice == 2})) {
+            wx.showToast({title:'亲,您还没有选择商品哟',icon:'none'})
+        } else {
+            wx.navigateTo({url:'/pages/orderPay/orderPay?type=1'})
         }
+        
     },
 
     /**
@@ -122,7 +109,7 @@ Page({
 
 
     onShow() {
-        // this.getCarDataEvt()
+        this.getCarDataEvt()
     },
 
     /**
@@ -153,10 +140,5 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+   
 })

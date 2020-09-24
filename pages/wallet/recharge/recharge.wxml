@@ -1,0 +1,25 @@
+<view class="recharge bgcf1f1 pt20">
+    <view class="count bgcfff br20 mlr30 pr">
+        <image class="count-bg pb" src="/static/images/cz_bg@2x.png"></image>
+		<view class="pb count-detail">
+			<view class="f44 fff">充值送积分券</view>
+		 <view class="f30 fff mt40 mb20">赠送规则：</view>
+		 <view class="bgcfff cff4 text">
+			 充值最高可送198的积分券，充值少于198元，充值送相应的积分券，例如：充值100送100积分券，充值200送198的积分券，积分券参与每周平台分红。
+		 </view>
+		 <view class="bgcfff recharge-centre">
+			<view class="dfac pt50">
+			 <view wx:for="{{list}}" wx:key="index" data-number="{{item.number}}" data-id="{{item.id}}" class="money-item br20 flex flex1 f44 bold c333 {{tabIndex == item.id ? 'active' :''}}" bindtap="onchange">{{item.number}}</view>
+		 </view>
+		 <view class="bgcf1f1 input-box flex mt30 mb50">
+			  <view class="ml50 mr20">￥</view>
+			  <input type="number" value="{{value}}" bindinput="numberInput" class="number"/>
+		 </view>
+		 <view class="flex c333 bold f30 bgcffd h80 br40" bindtap="payEvt">微信支付</view>
+		 </view>
+		</view>
+	</view>
+	<view wx:if="{{isModal}}">
+            <loginModal :isModal="isModal" :pid="pid" bind:close="close" bind:accomplish="accomplish"></loginModal>
+        </view>
+</view>

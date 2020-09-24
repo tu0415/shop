@@ -5,10 +5,6 @@ page {
 .home {
     height: 100%;
     .top-fixex {
-        position: fixed;
-        width: 100%;
-        height: 180rpx;
-        z-index: 10;
         .search-box {
             height: 100rpx;
             navigator {
@@ -22,9 +18,10 @@ page {
             white-space: nowrap;
             padding-bottom: 25rpx;
             padding-top: 10rpx;
-            padding-right: 75rpx;
+			padding-right: 75rpx;
+			height: 80rpx;
+			
             .scroll-item {
-                width: 140rpx;
                 border-radius: 12rpx;
                 display: inline-block;
               }
@@ -46,13 +43,17 @@ page {
           }
     }
       .swiper-parent-box {
-        padding-top: 180rpx;
-        // height: ~'calc(100% - 150rpx)';
-        // height: 2000px;
-        // padding-bottom: 50rpx;
+		.home-bg {
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
         .count {
             z-index: 99;
-            position: relative;
+			position: relative;
+			.swiper-item-img {
+				height: 300rpx;
+			}
             .swiper-box {
                 width: 100%;
             }
@@ -84,7 +85,7 @@ page {
 
 .hot{
 	width: 100%;
-	background-color:#ffe96d;
+	background: linear-gradient(-35deg, #FFAE38, #FFEA77, #FFAD38);
 	text-align: center;
 	padding-bottom: 20rpx;
 	margin-bottom: 50rpx;
@@ -197,6 +198,7 @@ page {
 				image{
 					width: 100%;
 					height: 80rpx;
+					border-radius: 20rpx 20rpx 0px 0px;
 				}
 			}
 			.seltitle{

@@ -1,26 +1,27 @@
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
  <view class="orderPay h100  bgcf1f1">
-        <view bindtap="goAddress" class="adress-box bgcfff djcai plr30 br20 mlr30">
-            <view class="daic">
-                <image class="wh40" src="/static/images/delete.png"></image>
+        <navigator url="/pages/address/siteList/siteList?type={{type}}" hover-class="none" wx:if="{{address.name}}" class="adress-box bgcfff djcai plr30 br20 mlr30">
+            <view class="daic" >
+                <image class="wh50" src="/static/images/diz@2x.png"></image>
                 <view class="plr30">
                     <view class="dflex" style="align-items: flex-end;">
-                        <text class="f32 c333" style="margin-right:25rpx">{{selfAddres.name}}111</text>
-                        <text class="f28 c999">{{selfAddres.phone}}111</text>
+                        <text class="f32 c333" style="margin-right:25rpx">{{address.name || ''}}</text>
+                        <text class="f28 c999">{{address.phone || ''}}</text>
                     </view>
-                    <view class="f28 c333 mt20">{{selfAddres.address || ''}}111</view>
+                    <view class="f28 c333 mt20">{{address.province + address.city + address.area + address.address || ''}}</view>
                 </view>
             </view>
-             <image class="wh40" src="/static/images/delete.png"></image>
-        </view>
+            <van-icon name="arrow" />
+        </navigator>
         <view class="count">
             <view class="shop-info bgcfff br20 mlr30 mb20" wx:for="{{list}}" wx:key="index">
                 <view class="djcsb mb20">
-                    <image class="wh220 mr30 br20" src="/static/images/delete.png"></image>
+                    <image class="wh220 mr30 br20" src="{{item.thumb}}"></image>
                     <view class="flex1 djcsb flex-column" style="">
-                        <view class="f30 c333">{{item.goodsName}}</view>
+                        <view class="f30 c333">{{item.name}}</view>
                         <view class="djcai">
-                            <text class="f28 c333">￥{{item.goodsPrice}}</text>
-                            <text class="f26 c999">X{{item.goodsQuantity}}</text>
+                            <text class="f28 c333">￥{{item.markprice}}</text>
+                            <text class="f26 c999">X{{item.number}}</text>
                         </view>
                     </view>
                 </view>
@@ -34,16 +35,37 @@
                    
                 </view>
                 <view class="jcfe dflex">
-                    共{{item.goodsQuantity}}1件，小计：
-                    <text  class="ff1D">￥{{item.itemPirce}}100</text>
+                    共{{item.number}}1件，小计：
+                    <text  class="ff1D">￥{{filters.toFix(item.number * item.markprice,2)}}</text>
+                     <!-- <text class="ff1D">合计：￥{{filters.toFix(totalPrice,1)}}</text> -->
                 </view>
             </view>
         </view>
 
 
         <view class="position-fixed bottom bgcfff daic">
-            共{{total}}11件，小计：
-            <text class="ff1D">￥{{price}}11</text>
-            <view class="pay flex c333 bgcffd" bindtap="goPay">微信支付</view>
+            共{{totalNumber}}件，小计：
+            <text class="ff1D">￥{{totalPrice}}</text>
+            <!-- <text class="ff1D">￥{{filters.toFix(totalPrice,2)}}</text> -->
+
+            <view class="pay flex c333 bgcffd" bindtap="openPopup">提交订单</view>
         </view>
+
+        <van-popup show="{{ show }}" closeable position="bottom" bind:close="closePopup" >
+            <view class="pay-popup bgcfff">
+                <view class="f36 c333 flex"  >订单支付</view>
+                <view class="price f56 c343 flex bold mt60">￥{{totalPrice}}</view>
+                <view class="mt50 mb70">
+                   <view class="dfjsac bde5e5 pay-item" wx:for="{{selectPay}}" wx:key="index">
+                        <view class="f28 c343">{{item.way}}</view>
+                        <image wx:if="{{item.isActive == 1}}" class="wh36" src="/static/images/xz@2x.png"></image>
+                        <image wx:else class="wh36" data-id="{{item.id}}" bindtap="selectEvt" src="/static/images/wxz@2x.png"></image>
+                   </view>
+                </view>
+                <view class="btn-box flex mt10">
+                    <view class="flex f32 c333 f34 bgcffd bold btn" bindtap="payEvt" style="width:660rpx;">立即支付</view>
+                </view>
+            </view>
+
+        </van-popup>
     </view>

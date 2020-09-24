@@ -24,7 +24,8 @@
         "pages/wallet/withdrawRecord/withdrawRecord",
         "pages/integral/integral",
         "compontent/loginModal/loginModal",
-        "pages/team/team"
+        "pages/team/team",
+        "pages/wallet/recharge/recharge"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -69,6 +70,9 @@
                 "selectedIconPath": "static/images/tab005.png"
             }
         ]
+    },
+    "usingComponents": {
+        "van-icon": "./compontent/vant/icon/index"
     },
     "sitemapLocation": "sitemap.json"
 }

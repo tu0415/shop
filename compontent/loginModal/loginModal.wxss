@@ -1,7 +1,4 @@
-page {
-  height: 100%;
-}
-page .loginModal {
+.shade-cont {
   top: 0;
   left: 0;
   position: fixed;
@@ -9,7 +6,7 @@ page .loginModal {
   height: 100vh;
   z-index: 333;
 }
-page .loginModal .count-box {
+.shade-cont .count-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +15,7 @@ page .loginModal .count-box {
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
 }
-page .loginModal .count-box .count {
+.shade-cont .count-box .count {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -31,23 +28,23 @@ page .loginModal .count-box .count {
   background-color: #fff;
   border-radius: 20rpx;
 }
-page .loginModal .count-box .count .nologin {
+.shade-cont .count-box .count .nologin {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 34rpx;
 }
-page .loginModal .count-box .count .txt {
+.shade-cont .count-box .count .txt {
   font-size: 28rpx;
   margin-top: 20rpx;
 }
-page .loginModal .count-box .count .btn-box {
+.shade-cont .count-box .count .btn-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 50rpx;
 }
-page .loginModal .count-box .count .btn-box .btn {
+.shade-cont .count-box .count .btn-box .btn {
   width: 200rpx;
   height: 80rpx;
   background-color: #cdcdcd;
@@ -58,12 +55,12 @@ page .loginModal .count-box .count .btn-box .btn {
   justify-content: center;
   align-items: center;
 }
-page .loginModal .count-box .count .btn-box .userInfo-btn {
+.shade-cont .count-box .count .btn-box .userInfo-btn {
   margin-left: 40rpx;
   background-color: #FFD02B;
   color: #333;
 }
-page .loginModal .count-box .count .txt {
+.shade-cont .count-box .count .txt {
   display: flex;
   align-items: center;
   justify-content: center;

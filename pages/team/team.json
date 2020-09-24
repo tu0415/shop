@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-	  "van-circle": "../../compontent/vant/circle/index"
+    "van-circle": "../../compontent/vant/circle/index",
+    "loginModal": "../../compontent/loginModal/loginModal"
   },
   "navigationBarTitleText": "团队"
 }

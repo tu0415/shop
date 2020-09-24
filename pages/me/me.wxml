@@ -19,36 +19,36 @@
                 <text class="f26 c333 mt20">上周分红</text>
             </view>
             <navigator url="/pages/me/balance" hover-class="none" class="daic flex-column flex1">
-                <text class="f26 c333 ">{{userInfo.memberBalance || 0}}</text>
+                <text class="f26 c333 ">{{userInfo.credit || 0}}</text>
                 <text class="f26 c333 mt20">积分</text>
             </navigator>
             <navigator url="/pages/me/team" hover-class="none" class="daic flex-column flex1">
-                <text class="f26 c333 ">{{userInfo.teamNum || 0}}</text>
+                <text class="f26 c333 ">{{userInfo.balance || 0}}</text>
                 <text class="f26 c333 mt20">余额</text>
             </navigator>
         </view>
 
         <view class="flex bgcfff order br20 mlr30 mt20">
-            <navigator url="/pages/me/allOrder?type=1" hover-class="none" class="daic flex-column flex1">
+            <view data-type="{{1}}"  bindtap="goDetail" class="daic flex-column flex1">
                 <image class="wh60" src="/static/images/qbdd@2x.png"></image>
                 <text class="f28 c333 mt20">全部订单</text>
-            </navigator>
-            <navigator url="/pages/me/allOrder?type=2" hover-class="none" class="daic flex-column flex1">
+            </view>
+            <view data-type="2" bindtap="goDetail" class="daic flex-column flex1">
                 <image class="wh60" src="/static/images/dfk@2x.png"></image>
                 <text class="f28 c333 mt20">待付款</text>
-            </navigator>
-            <navigator url="/pages/me/allOrder?type=3" hover-class="none" class="daic flex-column flex1">
+            </view>
+            <view  data-type="3" bindtap="goDetail" class="daic flex-column flex1">
                 <image class="wh60" src="/static/images/weifh@2x.png"></image>
                 <text class="f28 c333 mt20">待发货</text>
-            </navigator>
-            <navigator url="/pages/me/allOrder?type=4" hover-class="none" class="daic flex-column flex1">
+            </view>
+            <view  data-type="4" bindtap="goDetail" class="daic flex-column flex1">
                 <image class="wh60" src="/static/images/dsh@2x.png"></image>
                 <text class="f28 c333 mt20">待收货</text>
-            </navigator>
-            <navigator url="/pages/me/allOrder?type=5" hover-class="none" class="daic flex-column flex1">
+            </view>
+            <view  data-type="5" bindtap="goDetail" class="daic flex-column flex1">
                 <image class="wh60" src="/static/images/yiwc@2x.png"></image>
                 <text class="f28 c333 mt20">已完成</text>
-            </navigator>
+            </view>
         </view>
         <view class="share mlr30  mt20">
             <button class="share-btn" hover-class="none pr"  open-type="share" >
@@ -75,7 +75,7 @@
                 <image class="wh45" src="/static/images/gywm@2x.png"></image>
                 <text class="f28 c333 mt20">关于我们</text>
             </navigator>
-            <navigator url="/pages/me/shipping" hover-class="none" class="daic flex-column mb50  w33">
+            <navigator url="/pages/address/siteList/siteList" hover-class="none" class="daic flex-column mb50  w33">
                 <image class="wh45" src="/static/images/shdz@2x.png"></image>
                 <text class="f28 c333 mt20">收货地址</text>
             </navigator>
@@ -95,8 +95,7 @@
             </view>
         </view>
          <view wx:if="{{isModal}}">
-            <loginModal :isModal="isModal" :parentId="parentId" bind:close="close" bind:accomplish="accomplish"></loginModal>
+            <loginModal :isModal="isModal" :pid="pid" bind:close="close" bind:accomplish="accomplish"></loginModal>
         </view>
-       
          
     </view>

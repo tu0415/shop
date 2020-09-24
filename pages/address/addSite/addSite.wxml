@@ -24,13 +24,12 @@
         </view>
         <view class="djcai mt30 mb40">
             <text>设为默认</text>
-            <!-- <image class="wh40 " src="/static/images/img03@2x.png"></image> -->
              <view class="body-view">
                 <switch checked="{{switch1Checked}}" color="#FFD02C" bindchange="switch1Change"/>
             </view>
         </view>
-        <view class=" f34 c333 ">
-            <view class="add flex bgcffd" bindtap="addressEvt">保存地址</view>
+        <view class=" f34 c333 mt60">
+            <view class="add flex bgcffd" bindtap="addSiteEvt">保存地址</view>
         </view>
        
 

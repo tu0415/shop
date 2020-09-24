@@ -72,3 +72,13 @@ page {
   border-radius: 35rpx;
   margin-left: 20rpx;
 }
+.orderPay .pay-popup {
+  padding: 40rpx 30rpx;
+}
+.orderPay .pay-popup .pay-item {
+  padding: 25rpx 0 35rpx;
+}
+.orderPay .pay-popup .btn {
+  height: 80rpx;
+  border-radius: 40rpx;
+}

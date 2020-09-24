@@ -13,10 +13,7 @@ Page({
        number:1,
     },
     id:'',
-    openPopup() {
-        this.hideModal()
-    },
-
+    type:'',
     hideModal() {
         this.setData({
             hideFlag:false
@@ -24,7 +21,6 @@ Page({
     },
     async getData(id) {
         let {data} = await http.quest(goods.goodsDetail,{id,openid:wx.getStorageSync('userInfo').openid})
-        console.log(data)
         this.setData({shopInfo:data})
     },
     
@@ -48,9 +44,11 @@ Page({
          this.setData({isModal:false}) 
      },
 
-    async openPopup() {
+    async openPopup(e) {
+        
         let islogin = await isLogin(this.data.isModal)
         this.setData({isModal:islogin})
+        this.type = e.currentTarget.dataset.type
         if(!this.data.isModal) {
             this.setData({show:true})
         }
@@ -65,9 +63,25 @@ Page({
      },
 
      async addCarEvt() {
-         let data =  await http.quest(car.addCart,{number:this.data.number,goods_id:this.data.shopInfo.id,openid:wx.getStorageSync('userInfo').openid})
-         wx.showToast({title: data.msg, icon: 'success',mask: true,});
-         this.closePopup()
+         if(this.type == 1) {
+            let data =  await http.quest(car.addCart,{number:this.data.number,goods_id:this.data.shopInfo.id,openid:wx.getStorageSync('userInfo').openid})
+            wx.showToast({title: data.msg, icon: 'success',mask: true,});
+            this.closePopup()
+         } else {
+             wx.navigateTo({
+               url: '/pages/orderPay/orderPay?type=2' + '&id=' + this.data.shopInfo.id + '&number=' + this.data.number,
+             })
+         }
+        
+    },
+
+    previewImgEvt() {
+        let arr = []
+            arr = this.data.shopInfo.rotation_img
+            wx.previewImage({
+                urls: arr,
+                current: arr[0]
+        });
     },
 
     /**
@@ -120,10 +134,5 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+   
 })

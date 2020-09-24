@@ -28,30 +28,37 @@ Page({
             page:this.data.page,
             type:id
         }
-        if (this.finish) return
+        if (this.data.finish) return
         let {data} = await http.quest(goods.goodsList,parameter)
-        this.data.finish = data.length < 5
-        !this.data.finish && this.setData({page:this.data.page+=1})
-        this.setData({rightData:this.data.rightData.concat(data)})
+        if(data && data.length) {
+            this.data.finish = data.length < 3
+            !this.data.finish && this.setData({page:this.data.page+=1})
+            this.setData({rightData:this.data.rightData.concat(data)})
+        }
+       
     },
 
     changTab(e) {
         let {index,id} = e.currentTarget.dataset
-        this.setData({tabIndex:index,rightData:[]})
+        this.setData({tabIndex:index,rightData:[],page:1,finish:false})
         this.getRightData(id)
     },
     onPullDownRefresh() {
        
     },
     loadMore() {
+
        this.getRightData(2)
        
+    },
+    addCar() {
+        console.log(111)
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-    //    this.getLeftData()
+       this.getLeftData()
     },
 
     /**
@@ -86,13 +93,8 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        console.log(1111)
+   
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+   
 })

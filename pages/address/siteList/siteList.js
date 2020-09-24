@@ -1,56 +1,35 @@
-// pages/siteList/siteList.js
+import http from "../../../utils/request"
+import {site} from "../../../api/index"
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        addressList: [
-            {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        },
-        {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        }, {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        }, {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        }, {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        }, {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        },
-        {
-            name: '张三',
-            phone: '15387215009',
-            address: '深圳',
-            isDefault: '1'
-        },
-    ]
+        addressList: [],
+    },
+    compay:'',
+    async getAddressList() {
+        let {data} =  await http.quest(site.addressList,{ openid:wx.getStorageSync('userInfo').openid})
+        this.setData({addressList:data})
+    },
+
+    goPay(e) {
+        let type = {type:this.compay}
+        let addressData = JSON.stringify(Object.assign(e.currentTarget.dataset,type))
+        if(this.compay) {
+            wx.redirectTo({
+              url: '/pages/orderPay/orderPay?data=' + addressData,
+            })
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad(options) {
+        this.compay = options.type
+        this.getAddressList()
 
     },
 
@@ -96,10 +75,5 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+    
 })
