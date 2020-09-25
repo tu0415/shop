@@ -67,7 +67,23 @@ Page({
         setTimeout(()=>{wx.redirectTo({url: '/pages/address/siteList/siteList'})},800)
     },
 
+    getAddress() {
+        let that = this
+        wx.chooseAddress({
+            success (res) {
+              console.log(res)
+              that.setData({
+                'region[0]':res.provinceName,
+                'region[1]':res.cityName,
+                'region[2]':res.countyName,
+                 name:res.userName,
+                 phone:res.telNumber,
+                 address:res.detailInfo,
 
+              })
+            }
+          })
+    },
 
 
     /**

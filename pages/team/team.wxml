@@ -64,19 +64,19 @@
 		</view>
 		<view class="item flex mt40 pb40 flex taam-title">
 			<view class="" style="flex: 0.5;">排名</view>
-			<view  class="flex" style="flex: 2;">会员</view>
+			<view  class="" style="flex: 2;padding-left:50rpx;" >会员</view>
 			<view  class="flex" style="flex: 1;">分红券</view>
 			<view  class="flex" style="flex: 1;">占比</view>
 		</view>
 		<view class="flex taam-title" wx:for="{{ranking}}" wx:key="index">
 			<view style="flex: 0.5;">{{index + 1}}</view>
-			<view class="daic" style="flex: 2;">
-				<image class="wh60 br50 ml15 mr30" src="{{item.avatar}}"></image>
+			<view class="daic" style="flex: 2;" >
+				<image class="wh60 br50 ml30 mr30" src="{{item.avatar}}"></image>
 				<text class="f26">{{item.nickname}}</text>
 			</view>
 			<view class="flex" style="flex: 1;">{{item.total_credit}}</view>
 			<view class="flex" style="flex: 1;">
-				 <van-circle value="{{ item.proportion }}" text="20%" size="35" layer-color="#E2E2E2" color="#FFA210" />
+				 <van-circle value="{{ item.proportion }}" text="{{item.proportion + '%'}}" size="35" layer-color="#E2E2E2" color="#FFA210" />
 			</view>
 		</view>
 	

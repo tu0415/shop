@@ -134,7 +134,12 @@ Page({
         try {
             let goods= '';
             this.data.list.map(i => {
-                goods += `${i.goods_id}-${i.number}` + ','
+                if(this.data.type == 1) {
+                    goods += `${i.goods_id}-${i.number}` + ','
+                } else {
+                    goods += `${i.id}-${i.number}` + ','
+                }
+               
             })
             goods = goods.substring(0, goods.length - 1);
             let parameter = {

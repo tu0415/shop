@@ -1,11 +1,12 @@
  <view class="address bgcfff plr30">
+        <view class="selectSite" bindtap="getAddress">地址簿</view>
         <view class="bde5e5 daic item">
             <text class="name">收货人</text>
-            <input type="text" class="flex1"  bindinput="usernameInput" placeholder-class="ccc" placeholder="请输入收货人姓名"/>
+            <input type="text" class="flex1" value="{{name}}" bindinput="usernameInput" placeholder-class="ccc" placeholder="请输入收货人姓名"/>
         </view>
         <view class="bde5e5 daic item">
             <text class="name">联系电话</text>
-            <input type="number" class="flex1"  bindinput="phoneInput" placeholder-class="ccc" placeholder="请输入联系电话"/>
+            <input type="number" class="flex1" value="{{phone}}"  bindinput="phoneInput" placeholder-class="ccc" placeholder="请输入联系电话"/>
         </view>
         <view class="section bde5e5 daic item">
             <text class="name">所在地</text>
@@ -17,10 +18,10 @@
                     <van-icon name="arrow" size="18" color="#C6C6C6" />
                 </view>
             </picker>
-
+           
         </view>
         <view class="bde5e5 detail-adress">
-            <textarea name="" id="" cols="30" rows="10" bindinput="addressInput"  placeholder-class="ccc" placeholder="输入详细地址、门牌号、小区..."></textarea>
+            <textarea name="" id="" cols="30" value="{{address}}"  rows="10" bindinput="addressInput"  placeholder-class="ccc" placeholder="输入详细地址、门牌号、小区..."></textarea>
         </view>
         <view class="djcai mt30 mb40">
             <text>设为默认</text>
@@ -31,6 +32,5 @@
         <view class=" f34 c333 mt60">
             <view class="add flex bgcffd" bindtap="addSiteEvt">保存地址</view>
         </view>
-       
-
+      
     </view>

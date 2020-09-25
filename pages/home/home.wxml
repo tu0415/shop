@@ -31,7 +31,7 @@
 							:duration="1000" style="margin-bottom: 40rpx;">
 							<swiper-item class="swiper-item-img" wx:for="{{swiperList}}" wx:key="index">
 								<view class="swiper-item br20" style="height:300rpx">
-									<image class="wh100 br20" src="{{item.thumb}}"></image>
+									<image class="wh100 br20"  mode="widthFix" src="{{item.thumb}}"></image>
 								</view>
 							</swiper-item>
 						</swiper>
@@ -52,8 +52,8 @@
 							</view>
 							<view class="hotContent " wx:for="{{hotList}}" wx:key="index">
 								<view class="hotList df br20">
-									<view class="hotListleft">
-										<image src="{{item.thumb}}" mode=""></image>
+									<view class="hotListleft br20">
+										<image class="br20" src="{{item.thumb}}" mode=""></image>
 									</view>
 									<view class="hotListright">
 										<text class="listTitle f28">{{item.desc}}</text>
