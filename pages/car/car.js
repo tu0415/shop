@@ -48,7 +48,8 @@ Page({
                 totalNumber: this.totalNumber,
                 allSlect:data.some(item => {return item.choice == 2})
             })
-           
+        } else {
+            this.setData({list: []})
         }
     },
 

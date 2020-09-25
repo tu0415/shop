@@ -132,10 +132,12 @@ Page({
 
     async payEvt() {
         try {
-            let goods= '';
+            let goods= '',ids='';
             this.data.list.map(i => {
                 if(this.data.type == 1) {
                     goods += `${i.goods_id}-${i.number}` + ','
+                    ids += i.id + ','
+
                 } else {
                     goods += `${i.id}-${i.number}` + ','
                 }
@@ -154,18 +156,19 @@ Page({
             if(this.data.selectPay[0].isActive) {
                 await requestPayment(data) 
                 await wx.showToast({ title: '支付成功', });
+                this.deleteCar(ids)
                 setTimeout(() => { wx.redirectTo({ url: '/pages/order/orderList/orderList?type=1' }) }, 800);
+                
             } else {
                 let result =  await http.quest(order.balance,{id:res.data[0]})
                 if(result.status ==1) {
                     await wx.showToast({ title: '支付成功', });
+                    this.deleteCar(ids)
                     setTimeout(() => { wx.redirectTo({ url: '/pages/order/orderList/orderList?type=1' }) }, 800);
                 } else {
                     await wx.showToast({ title: result.msg, });
                 }
             }
-            
-           
             
 
         } catch (error) {
@@ -174,6 +177,13 @@ Page({
        
 
        
+    },
+
+    async deleteCar(ids) {
+        if(this.data.type == 1) {
+            ids = ids.substring(0, ids.length - 1);
+            await http.quest(car.clearCart, { ids, openid: wx.getStorageSync('userInfo').openid })
+        }
     },
 
 

@@ -75,10 +75,10 @@
                 <image class="wh45" src="/static/images/gywm@2x.png"></image>
                 <text class="f28 c333 mt20">关于我们</text>
             </navigator>
-            <navigator url="/pages/address/siteList/siteList" hover-class="none" class="daic flex-column mb50  w33">
+            <view data-type="10" bindtap="goDetail" class="daic flex-column mb50  w33">
                 <image class="wh45" src="/static/images/shdz@2x.png"></image>
                 <text class="f28 c333 mt20">收货地址</text>
-            </navigator>
+            </view>
             <navigator url="/pages/me/feedback" hover-class="none" class="daic flex-column mb50  w33">
                 <image class="wh45" src="/static/images/yhfk@2x.png"></image>
                 <text class="f28 c333 mt20">用户反馈</text>
@@ -95,7 +95,7 @@
             </view>
         </view>
          <view wx:if="{{isModal}}">
-            <loginModal :isModal="isModal" :pid="pid" bind:close="close" bind:accomplish="accomplish"></loginModal>
+            <loginModal :isModal="isModal" pid="{{pid}}" bind:close="close" bind:accomplish="accomplish"></loginModal>
         </view>
          
     </view>

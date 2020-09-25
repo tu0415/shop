@@ -56,7 +56,7 @@
 										<image class="br20" src="{{item.thumb}}" mode=""></image>
 									</view>
 									<view class="hotListright">
-										<text class="listTitle f28">{{item.desc}}</text>
+										<text class="listTitle f28">{{item.name}}</text>
 										<text class="price f24">￥{{item.markprice}}</text>
 										<text class="sold f22">已售{{item.sales}}</text>
 										<navigator url="/pages/shop/shopDetail/shopDetail?id={{item.id}}"
@@ -87,7 +87,7 @@
 								<view class="listImg">
 									<image class="shop-img" src="{{goodsItem.thumb}}" mode="widthFix"></image>
 								</view>
-								<view class="seltitle plr30 f28 mt25">{{goodsItem.desc}}</view>
+								<view class="seltitle plr30 f28 mt25">{{goodsItem.name}}</view>
 								<view class="selprice plr30">
 									<text class="pr">￥{{goodsItem.markprice}}</text>
 									<text class="so f28">已售{{goodsItem.sales}}</text>

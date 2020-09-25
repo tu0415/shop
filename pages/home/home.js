@@ -130,5 +130,15 @@ Page({
    
     loadMore() {
         this.getGoodsData(this.data.goodsPage,this.data.id)
+    },
+    onShareAppMessage(res) {
+        let pid = wx.getStorageSync('userInfo').id || ''
+        return {
+            title: '乐速易购',
+            path: '/pages/me/me?pid=' + pid,
+            // imgUrl: '/static/images/qbdd@2x.png',
+            success(res) {
+            }
+        }
     }
 })

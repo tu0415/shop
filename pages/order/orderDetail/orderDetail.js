@@ -14,6 +14,13 @@ Page({
         this.setData({info:data})
 
     },
+    copy(e) {
+        console.log(e)
+        let {num} = e.currentTarget.dataset
+        wx.setClipboardData({
+            data: num,
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载

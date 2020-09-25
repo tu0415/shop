@@ -35,9 +35,23 @@ Page({
         this.setData({ isModal: islogin })
         if (this.data.isModal) {
             wx.hideTabBar()
-        } else {
+        } else { // 1-5订单 6分红 7积分 8余额 9收藏 10收货地址 11用户反馈 
             let {type} = e.currentTarget.dataset
-            wx.navigateTo({url:'/pages/order/orderList/orderList?type=' + type})
+            if(type == 5) {
+
+            } else if(type ==6) {
+
+            }else if(type ==7) {
+                
+            }else if(type ==8) {
+                
+            }else if(type ==9) {
+                
+            }else if(type ==10) {
+                wx.navigateTo({url:'/pages/address/siteList/siteList'})
+            } else {
+                wx.navigateTo({url:'/pages/order/orderList/orderList?type=' + type})
+            }
         }
         
     },
@@ -53,6 +67,9 @@ Page({
      */
     onLoad(options) {
         this.setData({ pid: options.pid || '' })
+        if(options.pid) {
+            this.setData({isModal:true})
+        }
     },
     onShow() {
         if(wx.getStorageSync('userInfo').openid) {
@@ -62,13 +79,11 @@ Page({
     onShareAppMessage(res) {
         let pid = wx.getStorageSync('userInfo').id || ''
         return {
-            title: '海浪优选',
+            title: '乐速易购',
             path: '/pages/me/me?pid=' + pid,
             // imgUrl: '/static/images/qbdd@2x.png',
             success(res) {
             }
         }
     }
-
-
 })
