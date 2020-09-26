@@ -25,7 +25,9 @@
         "pages/integral/integral",
         "compontent/loginModal/loginModal",
         "pages/team/team",
-        "pages/wallet/recharge/recharge"
+        "pages/wallet/recharge/recharge",
+        "pages/teamDetail/teamDetail",
+        "pages/wallet/profit/profit"
     ],
     "window": {
         "backgroundTextStyle": "light",

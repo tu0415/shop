@@ -1,0 +1,50 @@
+<view class="teamDetail h100">
+    <van-tabs bind:scroll="scrollEvt" custom-class="bgcfff h100" nav-class="bgcf1f1 " swipeable color="#FFD02B" bind:tap="onChange">
+        <van-tab  style="height: calc(100% - 88rpx) !important" title="今日新增">
+            <view class="" style="height:calc(100vh - 88rpx) !important">
+				<scroll-view scroll-y="true" bindscrolltolower="loadMore">
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+                <view>111111</view>
+				</scroll-view>
+            </view>
+        </van-tab>
+        <van-tab title="团队总数">
+           
+        </van-tab>
+        <van-tab title="一级会员">内容 3</van-tab>
+        <van-tab title="二级会员">内容 4</van-tab>
+    </van-tabs>
+</view>
+

@@ -1,13 +1,18 @@
   <view class="balance plr30 bgcf1f1">
         <view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
-                <view class="info bgcf1f1 mrl30 pr br20 djcai fff">
+                <view class="info bgcf1f1 mrl30 pr br20 flex c333">
                     <view>
-                        <view class="f36 bold fff">余额:{{userInfo.memberBalance || 0}}</view>
-                        <view class="mt10 f24 opacity5">最低{{minTransfer}}元起提</view>
+                        <view class="f36 flex">{{userInfo.balance || 0}}</view>
+                        <view class="mt10 f24 ">余额</view>
                     </view>
-                    <navigator url="/pages/me/balanceWithdraw?serviceWeixin={{serviceWeixin}}" hover-class="none" class="f32 withdraw flex">
+                    <!-- <navigator class="pb" url="/pages/me/balanceWithdraw?serviceWeixin={{serviceWeixin}}" hover-class="none" class="f32 withdraw flex">
                         提现
-                    </navigator>
+                    </navigator> -->
+                    <view class="f28 pb menu">
+                        <view>充值</view>
+                        <view class="mt30">提现</view>
+
+                    </view>
                 </view>
             <view  class=" bgcf1f1" style="padding:20rpx 0rpx;">
                 <text class="f34 ">余额明细</text>

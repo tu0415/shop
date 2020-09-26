@@ -1,11 +1,18 @@
 
 
-  var filters = {
-      toFix:function(value,count) {
-          return value.toFixed(count)
-      }
-  }
+var filters = {
+	toFix: function (value, count) {
+		return value.toFixed(count)
+	}
+}
 
-  module.exports = {
-    toFix:filters.toFix
-  }
+var strToNumber = {
+	toNumber:function(value) {
+		return Number(value)
+	}
+}
+
+module.exports = {
+	toFix: filters.toFix,
+	toNumber: strToNumber.toNumber
+}

@@ -14,6 +14,7 @@ export const goods = {
 	goodsCollection:'/goods/goodsCollection', // 收藏
 	delCollection:'/goods/delCollection', // 商品列表
 	goodsList:'/goods/goodsList', // 取消收藏
+	collectionList:'/goods/collectionList', // 取消收藏
 }
 
 export const site = {
@@ -49,6 +50,8 @@ export const team = {
 	commissionProfit:'/Team/commissionProfit', // 佣金收益
 	pool:'/Team/pool', // 分红消费池
 	ranking:'/Team/ranking', // 分红列表
+	creditLog:'/Team/creditLog', // 积分列表
+	rechange:'/Team/rechange', // 充值列表
 }
 
 

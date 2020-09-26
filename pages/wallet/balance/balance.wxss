@@ -8,8 +8,7 @@ page .balance {
 page .balance .info {
   height: 170rpx;
   margin-top: 20prx;
-  padding: 0 20rpx 0 45rpx;
-  background: linear-gradient(-65deg, #ff6262, #ff3838);
+  background: linear-gradient(90deg, #FF6F20, #FFC62B);
 }
 page .balance .info .bg-img {
   width: 100%;
@@ -20,6 +19,10 @@ page .balance .info .withdraw {
   height: 60rpx;
   border: 1px solid #FFFFFF;
   border-radius: 20rpx;
+}
+page .balance .info .menu {
+  right: 40rpx;
+  top: 30rpx;
 }
 page .balance .info-box {
   width: 100%;

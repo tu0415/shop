@@ -38,8 +38,8 @@
 						<navigator url="/pages/wallet/recharge/recharge" hover-class="none" class="coupons pr"
 							style="margin-bottom: 30rpx;">
 							<image class="w100 " mode="widthFix" src="../../static/images/cz_b@2x.png"></image>
-							<view class="f50 fff bold pb title">充值送分红卷</view>
-							<view class="f22 bgcfff fff bold pb subheading cfb6">持有分红卷参与每周平台分红</view>
+							<view class="f50 fff bold pb title">充值送分红券</view>
+							<view class="f22 bgcfff fff bold pb subheading cfb6">持有分红券参与每周平台分红</view>
 						</navigator>
 						<view class="hot pt20">
 							<image class="" mode="widthFix" src="/static/images/yd@2x.png"></image>

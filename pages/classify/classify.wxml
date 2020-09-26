@@ -1,8 +1,8 @@
   <view class="classify">
-        <view class="search pr f26">
+        <navigator url="/pages/search/search" hover-class="none" class="search pr f26">
             <icon class="icon-small pb" type="search" size="16"></icon>
-            <input type="text" placeholder="搜索您想要的商品" bindtap="gosearch" />
-        </view>
+            <input type="text" placeholder="搜索您想要的商品" bindtap="gosearch" disabled/>
+        </navigator>
       
         <view class="list dflex">
 			<scroll-view class="left bgcf1f1" scroll-y="true">

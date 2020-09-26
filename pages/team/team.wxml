@@ -6,19 +6,19 @@
 		</view>
 		<view class="item flex mt40 ">
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">{{userInfo.new_member || 0}}</view>
+				<view class="f30 c198">{{teamInfo.new_member || 0}}</view>
 				<view class="f26 mt30">今日新增</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">{{userInfo.total || 0}}</view>
+				<view class="f30 c198">{{teamInfo.total || 0}}</view>
 				<view class="f26 mt30">团队总数</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">{{userInfo.levle1 || 0}}</view>
+				<view class="f30 c198">{{teamInfo.levle1 || 0}}</view>
 				<view class="f26 mt30">一级会员</view>
 			</view>
 			<view class="flex1 flex flex-column">
-				<view class="f30 c198">{{userInfo.levle2 || 0}}</view>
+				<view class="f30 c198">{{teamInfo.levle2 || 0}}</view>
 				<view class="f26 mt30">二级会员</view>
 			</view>
 		</view>
@@ -28,7 +28,7 @@
 			<image class="wh30 mr30" src="/static/images/yj@2x.png" />
 			<view class="f30 c333 flex">佣金收益</view>
 		</view>
-		<view class="item flex mt40 pb40">
+		<view class="item flex mt40 ">
 			<view class="flex1 flex flex-column">
 				<view class="f30 cff3">{{commission.today || 0}}</view>
 				<view class="f26 mt30">今日收益</view>
@@ -76,7 +76,7 @@
 			</view>
 			<view class="flex" style="flex: 1;">{{item.total_credit}}</view>
 			<view class="flex" style="flex: 1;">
-				 <van-circle value="{{ item.proportion }}" text="{{item.proportion + '%'}}" size="35" layer-color="#E2E2E2" color="#FFA210" />
+				 <van-circle value="{{ item.proportion }}" text="{{item.proportion + '%'}}" size="40" layer-color="#E2E2E2" color="#FFA210" />
 			</view>
 		</view>
 	

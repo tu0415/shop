@@ -1,0 +1,22 @@
+page {
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
+page .profit {
+  padding-bottom: 20rpx;
+}
+page .profit .title {
+  height: 80rpx;
+}
+page .capital {
+  height: 200rpx;
+}
+page .capital .capital-bg {
+  width: 100%;
+  height: 200rpx;
+  left: 0;
+  top: 0;
+}
+page .taam-box .taam-title {
+  padding: 15rpx 30rpx 15rpx 25rpx;
+}

@@ -42,11 +42,11 @@ Page({
             } else if(type ==6) {
 
             }else if(type ==7) {
-                
+                wx.navigateTo({url:'/pages/integral/integral'})
             }else if(type ==8) {
-                
+                // wx.navigateTo({url:'/pages/wallet/balance/balance'})
             }else if(type ==9) {
-                
+                wx.navigateTo({url:'/pages/collect/collect'})
             }else if(type ==10) {
                 wx.navigateTo({url:'/pages/address/siteList/siteList'})
             } else {

@@ -27,13 +27,16 @@ Page({
     async collectEvt(e) { // 点击收藏
         let islogin = await isLogin(this.data.isModal)
         this.setData({isModal:islogin})
-        if(this.data.shopInfo.collection == 0) {
-            let {data} = await http.quest(goods.goodsCollection,{goods_id:this.id,openid:wx.getStorageSync('userInfo').openid})
-            this.setData({"shopInfo.collection":1})
-        } else {
-            let {data} = await http.quest(goods.goodsList,{goods_id:this.id,openid:wx.getStorageSync('userInfo').openid})
-            this.setData({"shopInfo.collection":0})
+        if(!this.data.isModal) {
+            if(this.data.shopInfo.collection == 0) {
+                let {data} = await http.quest(goods.goodsCollection,{goods_id:this.id,openid:wx.getStorageSync('userInfo').openid})
+                this.setData({"shopInfo.collection":1})
+            } else {
+                let {data} = await http.quest(goods.goodsList,{goods_id:this.id,openid:wx.getStorageSync('userInfo').openid})
+                this.setData({"shopInfo.collection":0})
+            }
         }
+       
     },
 
     close() {

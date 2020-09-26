@@ -12,9 +12,9 @@ page .joinDetail .tab .tab-item.active {
   color: #ff1e1e;
 }
 page .joinDetail .info {
-  height: 230rpx;
+  height: 170rpx;
   margin-top: 20prx;
-  background: linear-gradient(-65deg, #ff6262, #ff3838);
+  background: linear-gradient(90deg, #FF6F20, #FFC62B);
 }
 page .joinDetail .info .bg-img {
   width: 100%;
@@ -24,7 +24,7 @@ page .joinDetail .info-box {
   width: 100%;
   z-index: 11;
   height: 100%;
-  padding: 0 30rpx;
+  padding: 0 40rpx;
 }
 page .joinDetail .info-box .rule {
   right: 20rpx;

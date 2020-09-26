@@ -1,0 +1,6 @@
+page {
+  height: 100%;
+}
+page .tab-item {
+  height: calc(100% - 88rpx);
+}

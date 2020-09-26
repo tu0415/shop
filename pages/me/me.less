@@ -102,3 +102,22 @@ page {
         border: none;
     }
 }
+
+ .heart{
+     top: 0;
+     left: 0;
+     z-index: 500;
+    animation: heart 2.3s ease-in-out 2.7s infinite alternate;
+    }
+    
+    // //margin-top会发生卡顿
+    // @keyframes heart{
+    // from{margin-top:0px;}
+    // to{margin-top:-6px;}
+    // }
+    
+    //用transform就流畅了
+    @keyframes heart{
+    from{transform:translate(0,0)}
+    to{transform:translate(300px,150px)}
+    }

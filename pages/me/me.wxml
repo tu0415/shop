@@ -1,4 +1,5 @@
- <view class="me  bgcf1f1">
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
+ <view class="me pr bgcf1f1">
         <view class="user-info pr">
             <image class="pb wh100" src="/static/images/wd_bg@2x.png"></image>
             <view style="z-index:111" class=" wh100 user-cont pr">
@@ -12,22 +13,20 @@
                 </view>
             </view>
         </view>
-
           <view class="flex bgcfff team br20 mlr30 pr" style="margin-top:-80rpx;z-index:112">
             <view  class="daic flex-column flex1">
                 <text class="f26 c333 ">{{userInfo.integration || 0}}</text>
                 <text class="f26 c333 mt20">上周分红</text>
             </view>
-            <navigator url="/pages/me/balance" hover-class="none" class="daic flex-column flex1">
-                <text class="f26 c333 ">{{userInfo.credit || 0}}</text>
+            <view data-type="7" bindtap="goDetail" class="daic flex-column flex1">
+                <text class="f26 c333 ">{{filters.toNumber(userInfo.credit)+filters.toNumber(userInfo.flush_credit) || 0}}</text>
                 <text class="f26 c333 mt20">积分</text>
-            </navigator>
-            <navigator url="/pages/me/team" hover-class="none" class="daic flex-column flex1">
+            </view>
+            <view data-type="8" bindtap="goDetail" class="daic flex-column flex1">
                 <text class="f26 c333 ">{{userInfo.balance || 0}}</text>
                 <text class="f26 c333 mt20">余额</text>
-            </navigator>
+            </view>
         </view>
-
         <view class="flex bgcfff order br20 mlr30 mt20">
             <view data-type="{{1}}"  bindtap="goDetail" class="daic flex-column flex1">
                 <image class="wh60" src="/static/images/qbdd@2x.png"></image>
@@ -64,13 +63,11 @@
                 <image class="share-img" src="/static/images/fx_b@2x.png" mode="widthFix" lazy-load="false"  />
             </button>
         </view>
-          
-      
         <view class="flex bgcfff menu br20 mlr30 flex-wrap mt20">
-            <navigator url="/pages/me/meCollect" hover-class="none" class="daic flex-column mb50  w33">
+            <view  data-type="9" bindtap="goDetail" class="daic flex-column mb50  w33">
                 <image class="wh45" src="/static/images/sc@2x.png"></image>
                 <text class="f26 c333 mt20">我的收藏</text>
-            </navigator>
+            </view>
             <navigator url="/pages/me/about" hover-class="none" class="daic flex-column mb50  w33">
                 <image class="wh45" src="/static/images/gywm@2x.png"></image>
                 <text class="f28 c333 mt20">关于我们</text>
@@ -97,5 +94,4 @@
          <view wx:if="{{isModal}}">
             <loginModal :isModal="isModal" pid="{{pid}}" bind:close="close" bind:accomplish="accomplish"></loginModal>
         </view>
-         
     </view>

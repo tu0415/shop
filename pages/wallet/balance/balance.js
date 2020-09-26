@@ -1,18 +1,25 @@
-// pages/wallet/balance/balance.js
+import http from "../../../utils/request"
+import { team } from "../../../api/index"
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        userInfo:wx.getStorageSync('userInfo')
+    },
 
+    async getRechangeEvt() {
+        let {data} = await http.quest(team.rechange,{openid:wx.getStorageSync('userInfo').openid})
+        console.log(data)
+        this.setData({list:data})
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onLoad(options) {
+        // this.getRechangeEvt()
     },
 
     /**

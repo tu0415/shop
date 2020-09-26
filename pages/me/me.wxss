@@ -97,3 +97,17 @@ page {
 .me button.service::after {
   border: none;
 }
+.heart {
+  top: 0;
+  left: 0;
+  z-index: 500;
+  animation: heart 2.3s ease-in-out 2.7s infinite alternate;
+}
+@keyframes heart {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(300px, 150px);
+  }
+}

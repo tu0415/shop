@@ -42,6 +42,7 @@ Page({
             console.log(data)
             await requestPayment(data) 
             await wx.showToast({ title: '充值成功', });
+            setTimeout(()=>{ wx.switchTab({ url: '/pages/me/me',})},800)
         } catch (error) {
             await wx.showToast({ title: '充值失败', });
         }

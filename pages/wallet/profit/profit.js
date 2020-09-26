@@ -1,6 +1,6 @@
-import http from "../../utils/request"
-import { team } from "../../api/index"
-import { isLogin } from "../../utils/utils"
+import http from "../../../utils/request"
+import { team } from "../../../api/index"
+import { isLogin } from "../../../utils/utils"
 Page({
     data: {
         isModal: false,

@@ -6,15 +6,15 @@
             
         </view>
         <view class="list">
-            <view class="bgcfff br20 mb20 daic list-item" wx:for="{{list}}" wx:key="*this" data-id="{{item.goodsId}}" bindtap="goShopDetail">
+            <view class="bgcfff br20 mb20 daic list-item" wx:for="{{list}}" wx:key="*this" data-id="{{item.goods_id}}" bindtap="goShopDetail">
                 <view class="ml40 mr40" wx:if="{{item.isShow}}">
-                    <image class="wh40" wx:if="{{item.isCheckShow}}" bindtap="slect" data-id="{{item.goodsId}}" src="/static/images/xz@2x.png"></image>
-                    <image class="wh40 " wx:else src="/static/images/wxz@2x.png" bindtap="slect" data-id="{{item.goodsId}}"></image>
+                    <image class="wh40" wx:if="{{item.isCheckShow}}" bindtap="slect" data-id="{{item.goods_id}}" src="/static/images/xz@2x.png"></image>
+                    <image class="wh40 " wx:else src="/static/images/wxz@2x.png" bindtap="slect" data-id="{{item.goods_id}}"></image>
                 </view>
-                <image class="wh160 mr20 br20" src="{{item.pic1}}"></image>
+                <image class="wh160 mr20 br20" src="{{item.thumb}}"></image>
                 <view>
-                    <view class="mb30">{{item.goodsName}}</view>
-                    <view class="ff1D ">￥{{item.goodsPrice}}</view>
+                    <view class="mb30">{{item.name}}</view>
+                    <view class="ff1D ">￥{{item.markprice}}</view>
                 </view>
             </view>
         </view>

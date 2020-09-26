@@ -2,13 +2,13 @@
  	<view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
  		<view class="info bgcf1f1 mrl30 pr br20">
  			<view class="info-box pr daic">
- 				<text class="pb f26 fff rule">规则</text>
- 				<image wx:if="{{userInfo.avatarUrl}}" class="wh99 br50" src="{{ userInfo.avatarUrl}}"></image>
+ 				<text class="pb f26 fff rule" bindtap="openProp">规则</text>
+ 				<image wx:if="{{userInfo.avatar}}" class="wh99 br50" src="{{ userInfo.avatar}}"></image>
  				<image wx:else class="wh99" mode="aspectFit" src="/static/images/default_user.png"></image>
  				<view class="flex1 ml30">
  					<view class=" fff">
- 						<text class="f32"> {{enterprise.comName}}3260</text>
- 						<text class="f24"> {{enterprise.comName}}本周积分</text>
+ 						<text class="f32"> {{userInfo.credit}}</text>
+ 						<!-- <text class="f24"> {{enterprise.comName}}本周积分</text> -->
  					</view>
  					<view class="f26 fff opacity7 mt10 mb10">购物赚积分，持积分享每周分红</view>
  					<!-- <view class="f32 fff daic ">
@@ -19,7 +19,7 @@
 
  			</view>
  		</view>
- 		<view class=" bgcf1f1" style="padding:30rpx 30rpx;">
+ 		<!-- <view class=" bgcf1f1" style="padding:30rpx 30rpx;">
  			<view class="tab flex">
  				<view class="f30 flex flex1 tab-item {{tabIndex ===1 ? 'active':'' }}">
  					<text bindtap="select">未结算</text>
@@ -28,22 +28,27 @@
  					<text bindtap="select">已结算</text>
  				</view>
  			</view>
- 		</view>
+ 		</view> -->
  	</view>
- 	<view style="padding-top:330rpx">
+ 	<view style="padding-top:200rpx">
  		<view class="mb20" style="padding:0 4rpx">
- 			<view class="bgcfff br20 list-item dflex mb20" wx:for="{{list}}" wx:key="*this">
- 				<image class="wh120 mr30 br20" src="/static/images/banner@2x.png"></image>
+ 			<view class="bgcfff br20 list-item dflex mb20" wx:for="{{list}}" wx:key="index">
+				 <image wx:if="{{item.type == 1}}" class="wh120 mr30 br20" src="/static/images/goods.png"></image>
+ 				<image wx:if="{{item.type == 2}}" class="wh120 mr30 br20" src="/static/images/fan.png"></image>
+ 				<image wx:if="{{item.type == 3}}" class="wh120 mr30 br20" src="/static/images/cz02@2x.png"></image>
+				 
  				<view class="flex1 djcai">
  					<view>
- 						<view class="f30 c333 bold">{{item.customerName}}</view>
+						<view wx:if="{{item.type == 1}}" class="f30 c333 bold">购买商品</view>
+ 						<view wx:if="{{item.type == 2}}" class="f30 c333 bold">订单分佣</view>
+ 						<view wx:if="{{item.type == 3}}" class="f30 c333 bold">充值余额</view>
  						<view class="djcai mt10 mb10">
- 							<text class="f22 c999">购物送积分{{item.orderCode}}</text>
+ 							<!-- <text class="f22 c999">购物送积分{{item.orderCode}}</text> -->
  							<!-- <text class="f22 c999" data-code="{{item.orderCode}}" bindtap="copy">复制</text> -->
  						</view>
- 						<view class="f22 c999 mb10">2020/05/06 12:12:23{{item.createTime}}</view>
+ 						<view class="f22 c999 mb10">{{item.create_time}}</view>
  					</view>
- 					<view class="f28  daic jcfe c333 bold ">付款:￥{{item.orderAmount}}</view>
+ 					<view class="f28  daic jcfe c333 bold ">{{item.credit}}</view>
  				</view>
  			</view>
  			<view class="f28 c333 flex">没有更多了</view>
@@ -52,8 +57,8 @@
  	<van-popup position="center" show="{{ show }}" closeable bind:close="onClose" custom-style="border-radius: 20rpx;">
  		<view class="bgcfff popup-count br20 flex flex-column">
  			<text class="f34">规则</text>
- 			<view class="txt mt10 mb60 f32">用户可通过购物获取相应积分，用户可通过购物获取相应积分，用户可通过购物获取相应积分，用户可通过</view>
- 			<button class="bgcff3 f30 fff btn flex" bindtap="onClose">我知道了</button>
+ 			<view class="txt mt10 mb60 f32">用户可通过购物获取相应积分</view>
+ 			<button class="bgcffd f30 c333 btn flex" bindtap="onClose">我知道了</button>
  		</view>
  	</van-popup>
 

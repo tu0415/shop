@@ -1,34 +1,28 @@
-import http from "../../utils/request"
-import { team } from "../../api/index"
+// pages/teamDetail/teamDetail.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        show:false,
-        list:[],
-        userInfo:wx.getStorageSync('userInfo')
+        active: 1,
     },
+    onChange(event) {
+        wx.showToast({
+          title: `切换到标签${event.detail.name}`,
+          icon: 'none',
+        });
+      },
+      
 
-
-    async getCreditLogEvt() {
-        let {data} = await http.quest(team.creditLog,{openid:wx.getStorageSync('userInfo').openid})
-        console.log(data)
-        this.setData({list:data})
-    },
-    openProp() {
-        this.setData({show:true})
-    },
-    onClose() {
-        this.setData({show:false})
-    },
-
+      scrollEvt(e) {
+        console.log(e)
+      },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getCreditLogEvt()
+
     },
 
     /**
@@ -58,20 +52,28 @@ Page({
     onUnload: function () {
 
     },
+    loadMore() {
+        console.log(444444444444444)
+    },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        console.log(111)
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
-
+    onReachBottom() {
+        console.log(111)
     },
 
-   
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 })

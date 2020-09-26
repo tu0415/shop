@@ -243,6 +243,20 @@
                     "pathName": "pages/wallet/recharge/recharge",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "团队详情",
+                    "pathName": "pages/teamDetail/teamDetail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "分红列表",
+                    "pathName": "pages/wallet/profit/profit",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
