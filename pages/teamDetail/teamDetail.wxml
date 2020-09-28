@@ -1,50 +1,23 @@
 <view class="teamDetail h100">
     <van-tabs bind:scroll="scrollEvt" custom-class="bgcfff h100" nav-class="bgcf1f1 " swipeable color="#FFD02B" bind:tap="onChange">
-        <van-tab  style="height: calc(100% - 88rpx) !important" title="今日新增">
+        <van-tab wx:for="{{tabList}}" wx:key="index" tab-class="abgc"  style="height: calc(100% - 88rpx) !important" title="{{item.title}}">
             <view class="" style="height:calc(100vh - 88rpx) !important">
-				<scroll-view scroll-y="true" bindscrolltolower="loadMore">
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
-                <view>111111</view>
+                <view class="f28 c333 flex" style="height:100rpx">
+                    <view class="flex flex1">会员</view>
+                    <view class="flex flex1">贡献</view>
+                </view>
+				<scroll-view scroll-y="true" style="height:calc(100vh - 168rpx) !important" bindscrolltolower="loadMore">
+                    <view class="f28 c333 flex">
+                        <view class="flex flex1">
+                            <image class="wh60 br50 mr20" src="/static/images/cz02@2x.png"></image>
+                            <text>一路有你才最...</text>
+                        </view>
+                        <view class="flex flex1">贡献</view>
+                    </view>
 				</scroll-view>
             </view>
         </van-tab>
-        <van-tab title="团队总数">
-           
-        </van-tab>
-        <van-tab title="一级会员">内容 3</van-tab>
-        <van-tab title="二级会员">内容 4</van-tab>
+      
     </van-tabs>
 </view>
 

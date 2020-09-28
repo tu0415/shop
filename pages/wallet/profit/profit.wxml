@@ -1,34 +1,22 @@
-<view class="profit plr30 pt20 bgcf1f1 ">
-    
-	<view class="bgcfff br20 taam-box">
-		<view class="title daic bde5e5 pl25">
-			<image class="wh30 mr30" src="/static/images/fhj@2x.png" />
-			<view class="f30 c333 flex">
-				分红券排行榜
-			</view>
-		</view>
-		<view class="item flex mt40 pb40 flex taam-title">
-			<view class="" style="flex: 0.5;">排名</view>
-			<view  class="" style="flex: 2;padding-left:50rpx;" >会员</view>
-			<view  class="flex" style="flex: 1;">分红券</view>
-			<view  class="flex" style="flex: 1;">占比</view>
-		</view>
-		<view class="flex taam-title" wx:for="{{ranking}}" wx:key="index">
-			<view style="flex: 0.5;">{{index + 1}}</view>
-			<view class="daic" style="flex: 2;" >
-				<image class="wh60 br50 ml30 mr30" src="{{item.avatar}}"></image>
-				<text class="f26">{{item.nickname}}</text>
-			</view>
-			<view class="flex" style="flex: 1;">{{item.total_credit}}</view>
-			<view class="flex" style="flex: 1;">
-				 <van-circle value="{{ item.proportion }}" text="{{item.proportion + '%'}}" size="40" layer-color="#E2E2E2" color="#FFA210" />
-			</view>
-		</view>
-	
-	</view>
-	
-	<view wx:if="{{isModal}}">
-        <loginModal :isModal="isModal" :pid="pid" bind:close="close" bind:accomplish="accomplish"></loginModal>
+<view class="withdrawRecord plr30 bgcf1f1">
+        <view >
+            <view wx:for="{{ranking}}" wx:key="index" class="mb20"  style="padding:0 4rpx">
+                <view class="bgcfff br20 list-item ">
+                    <view class="djcai">
+                        <view>
+                             <text class="f30 mr40">分红</text>
+                              <!-- <text class="f26 cff3" wx:if="{{item.transferStatus == 1}}">审核中</text>
+                              <text class="f26 " wx:if="{{item.transferStatus == 2}}">已审核</text>
+                              <text class="f26 cff3" wx:if="{{item.transferStatus == 3}}">驳回</text> -->
+                        </view>
+                         <text class="f32">{{item.bonus_credit}}</text>
+                    </view>
+                    <view class="djcai mt20">
+                        <text class="f30 c999">{{item.create_time}}</text>
+                         <text class="f30 c999">总分红券:{{item.total_credit}}</text>
+                    </view>
+                </view>
+            </view>
+             <view class="f28 c333 flex">没有更多了</view>
+        </view>
     </view>
-
-</view>

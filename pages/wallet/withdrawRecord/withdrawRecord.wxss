@@ -6,7 +6,7 @@ page .withdrawRecord {
   padding-top: 20rpx;
 }
 page .withdrawRecord .list-item {
-  padding: 40rpx 20rpx;
+  padding: 40rpx 30rpx;
 }
 page .withdrawRecord .list-item .price {
   margin: 40rpx 0 50rpx;

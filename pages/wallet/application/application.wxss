@@ -3,7 +3,7 @@ page {
   background-color: #f1f1f1;
 }
 page .balanceWithdraw {
-  padding-top: 90rpx;
+  padding-top: 60rpx;
 }
 page .count {
   padding: 70rpx 60rpx;
@@ -23,6 +23,9 @@ page .count .btn {
   height: 80rpx;
   width: 546rpx;
   border-radius: 40rpx;
+}
+page .count button::after {
+  border: none;
 }
 page .copy {
   width: 90rpx;

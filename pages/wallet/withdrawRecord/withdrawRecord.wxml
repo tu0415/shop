@@ -1,22 +1,25 @@
-  <view class="withdrawRecord plr30 bgcf1f1">
-        <view >
-            <view wx:for="{{list}}" wx:key="index" class="mb20"  style="padding:0 4rpx">
-                <view class="bgcfff br20 list-item ">
-                    <view class="djcai">
+<view class="withdrawRecord plr30 bgcf1f1">
+    <view>
+        <view wx:for="{{list}}" wx:key="index" class="mb20" style="padding:0 4rpx">
+            <view class="bgcfff br20 list-item ">
+                <view class="djcai">
+                    <view>
                         <view>
-                             <text class="f30 mr40">提现</text>
-                              <text class="f26 cff3" wx:if="{{item.transferStatus == 1}}">审核中</text>
-                              <text class="f26 " wx:if="{{item.transferStatus == 2}}">已审核</text>
-                              <text class="f26 cff3" wx:if="{{item.transferStatus == 3}}">驳回</text>
+                            <text class="f30 mr40">提现</text>
+                            <text class="f26 cff3" wx:if="{{item.status == 1}}">待审核</text>
+                            <text class="f26 " wx:if="{{item.status == 2}}">审核通过</text>
+                            <text class="f26 cff3" wx:if="{{item.status == 3}}">拒绝</text>
                         </view>
-                         <text class="f32">{{item.transferAmountName}}</text>
+                        <view class="djcai mt20">
+                            <text wx:if="{{item.status == 1}}" class="f30 c999">{{item.create_time}}</text>
+                            <text wx:else class="f30 c999">{{item.examine_time}}</text>
+                        </view>
                     </view>
-                    <view class="djcai mt20">
-                        <text class="f30 c999">{{item.createTime}}</text>
-                         <text class="f32 c999">余额：{{item.balance}}</text>
-                    </view>
+                    <text class="f32">{{item.money}}</text>
                 </view>
+
             </view>
-             <view class="f28 c333 flex">没有更多了</view>
         </view>
+        <view class="f28 c333 flex">没有更多了</view>
     </view>
+</view>

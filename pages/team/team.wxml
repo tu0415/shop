@@ -46,7 +46,7 @@
     <view class="capital br20 flex flex-column pr mt20 mb20 br20">
 		<image class="pb capital-bg br20" src="/static/images/fhc@2x.png"></image>
         <view class="pb">
-			<view class="f50 fff bold ">
+			<view class="f50 fff bold flex">
             {{pool.amount}}
         </view>
 		<view class="f28 fff mt20">

@@ -37,9 +37,7 @@ Page({
         try {
             if(!this.data.value) {wx.showToast({title: '请输入充值金额',icon:'none'});return}
             let res = await http.quest(order.rechange,{openid:wx.getStorageSync('userInfo').openid,price:this.data.value})
-            console.log(res)
             let {data} =  await http.quest(order.wxPay,{id:res.data.order_id,type:2})
-            console.log(data)
             await requestPayment(data) 
             await wx.showToast({ title: '充值成功', });
             setTimeout(()=>{ wx.switchTab({ url: '/pages/me/me',})},800)

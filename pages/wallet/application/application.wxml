@@ -1,17 +1,17 @@
  <view class="balanceWithdraw plr30 bgcf1f1">
         <view class="bgcfff br20 count pr">
-            <navigator  url="/pages/me/withdrawRecord" hover-class="none" class="pb record">提现记录</navigator>
+            <navigator  url="/pages/wallet/withdrawRecord/withdrawRecord" hover-class="none" class="pb record">提现记录</navigator>
             <view class="f30">提现金额</view>
             <view class="mt40 balance">
                 <text class="f50 bold">￥</text>
-                 <input class="ml30" type="number" v-model="balance" />
+                 <input class="ml30" type="digit" value="{{money}}" bindinput="moneyEvt" />
             </view>
             <view class="mt20 mb50 c999">
-               当前余额{{userInfo.memberBalance || 0}}元, <text class="c333" bindtap="all">全部提现</text>
+               当前余额{{balance || 0}}元, <text class="c333" bindtap="all">全部提现</text>
             </view>
             <view class="f28">提现到账：微信余额钱包 <text class="c999">(24小时内到账)</text></view>
             <view class="flex ">
-                <button  class="bgcff3 flex fff f34 btn" bindtap="withdrawEvt" >提现</button>
+                <button  class="bgcffd flex c333 f34 btn" bindtap="withdrawEvt" >提现</button>
             </view>
         </view>
         <view class="mt50">
@@ -22,7 +22,7 @@
                 目前平台无法完成线上提现，提现暂时由线下客服转账完成，后续会开放线上提现功能，不便之处敬请谅解，感谢合作。
             </view>
             <view class="f26 c666 mt40 daic">
-                客服微信：{{serviceWeixin}} <text class="c999 copy flex ml30" bindtap="copy">复制</text>
+                客服微信：{{service}} <text class="c999 copy flex ml30" bindtap="copy">复制</text>
             </view>
         </view>
         

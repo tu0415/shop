@@ -1,18 +1,27 @@
-// pages/wallet/withdrawRecord/withdrawRecord.js
+import http from "../../../utils/request"
+import { capital } from "../../../api/index"
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        list:[]
+    },
 
+    async getDataEvt() {
+         let parameter = {
+             openid:wx.getStorageSync('userInfo').openid,
+          }
+        const {data} = await http.quest(capital.cashList,parameter )
+        this.setData({list:data})
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onLoad(options) {
+        this.getDataEvt()
     },
 
     /**

@@ -1,5 +1,6 @@
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
  <view class="joinDetail plr30 bgcf1f1">
- 	<view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
+ 	<view class="position-fixed top bgcf1f1" style="left: 50%;transform: translateX(-50%);width:690rpx;padding-top:20rpx">
  		<view class="info bgcf1f1 mrl30 pr br20">
  			<view class="info-box pr daic">
  				<text class="pb f26 fff rule" bindtap="openProp">规则</text>
@@ -7,14 +8,9 @@
  				<image wx:else class="wh99" mode="aspectFit" src="/static/images/default_user.png"></image>
  				<view class="flex1 ml30">
  					<view class=" fff">
- 						<text class="f32"> {{userInfo.credit}}</text>
- 						<!-- <text class="f24"> {{enterprise.comName}}本周积分</text> -->
+ 						<text class="f32">{{filters.toNumber(userInfo.credit)+filters.toNumber(userInfo.flush_credit) || 0}}</text>
  					</view>
  					<view class="f26 fff opacity7 mt10 mb10">购物赚积分，持积分享每周分红</view>
- 					<!-- <view class="f32 fff daic ">
- 						<van-icon name="location-o" size="36rpx" color="white" />
- 						<text class="f26 opacity7 ml10">{{enterprise.comAddress}}111</text>
- 					</view> -->
  				</view>
 
  			</view>
@@ -30,7 +26,7 @@
  			</view>
  		</view> -->
  	</view>
- 	<view style="padding-top:200rpx">
+ 	<view style="padding-top:210rpx">
  		<view class="mb20" style="padding:0 4rpx">
  			<view class="bgcfff br20 list-item dflex mb20" wx:for="{{list}}" wx:key="index">
 				 <image wx:if="{{item.type == 1}}" class="wh120 mr30 br20" src="/static/images/goods.png"></image>

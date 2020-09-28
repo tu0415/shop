@@ -8,13 +8,12 @@ Page({
     data: {
         show:false,
         list:[],
-        userInfo:wx.getStorageSync('userInfo')
+        userInfo:''
     },
 
 
     async getCreditLogEvt() {
         let {data} = await http.quest(team.creditLog,{openid:wx.getStorageSync('userInfo').openid})
-        console.log(data)
         this.setData({list:data})
     },
     openProp() {
@@ -41,8 +40,8 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
+    onShow() {
+        this.setData({userInfo:wx.getStorageSync('userInfo') || ''})
     },
 
     /**

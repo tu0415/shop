@@ -6,12 +6,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo:wx.getStorageSync('userInfo')
+        userInfo:''
     },
 
     async getRechangeEvt() {
-        let {data} = await http.quest(team.rechange,{openid:wx.getStorageSync('userInfo').openid})
-        console.log(data)
+        let {data} = await http.quest(team.balanceLog,{openid:wx.getStorageSync('userInfo').openid})
         this.setData({list:data})
     },
 
@@ -19,7 +18,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // this.getRechangeEvt()
+        this.getRechangeEvt()
     },
 
     /**
@@ -32,8 +31,8 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
+    onShow() {
+        this.setData({ userInfo:wx.getStorageSync('userInfo') || ''})
     },
 
     /**

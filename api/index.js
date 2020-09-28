@@ -52,7 +52,14 @@ export const team = {
 	ranking:'/Team/ranking', // 分红列表
 	creditLog:'/Team/creditLog', // 积分列表
 	rechange:'/Team/rechange', // 充值列表
+	bonusList:'/Team/bonusList', // 分红记录
+	balanceLog:'/Team/balanceLog', // 余额明细
 }
 
+export const capital = {
+	cash:'/withdrawal/cash', // 用户提现
+	cashList:'/withdrawal/cashList', // 提现明细
+	service:'/withdrawal/service', // 客服微信
+}
 
 

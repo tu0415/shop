@@ -3,7 +3,7 @@ page {
   background-color: #f1f1f1;
 }
 page .joinDetail {
-  padding-top: 20rpx;
+  background-color: #f1f1f1;
 }
 page .joinDetail .tab {
   color: #333333;

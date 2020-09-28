@@ -1,36 +1,36 @@
-  <view class="balance plr30 bgcf1f1">
-        <view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
-                <view class="info bgcf1f1 mrl30 pr br20 flex c333">
-                    <view>
-                        <view class="f36 flex">{{userInfo.balance || 0}}</view>
-                        <view class="mt10 f24 ">余额</view>
-                    </view>
-                    <!-- <navigator class="pb" url="/pages/me/balanceWithdraw?serviceWeixin={{serviceWeixin}}" hover-class="none" class="f32 withdraw flex">
+<view class="balance plr30 bgcf1f1">
+    <view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
+        <view class="info bgcf1f1 mrl30 pr br20 flex c333">
+            <view class="">
+                <view class="f36 flex bold">{{userInfo.balance || 0}}</view>
+                <view class="mt20 f24 flex">余额</view>
+            </view>
+            <!-- <navigator class="pb" url="/pages/me/balanceWithdraw?serviceWeixin={{serviceWeixin}}" hover-class="none" class="f32 withdraw flex">
                         提现
                     </navigator> -->
-                    <view class="f28 pb menu">
-                        <view>充值</view>
-                        <view class="mt30">提现</view>
-
-                    </view>
-                </view>
-            <view  class=" bgcf1f1" style="padding:20rpx 0rpx;">
-                <text class="f34 ">余额明细</text>
+            <view class="f28 pb menu">
+                <navigator url="/pages/wallet/recharge/recharge" hover-class="none">充值</navigator>
+                <navigator url="/pages/wallet/application/application" hover-class="none" class="mt30">提现</navigator>
             </view>
         </view>
-        <view style="padding-top:260rpx">
-            <view wx:for="{{list}}" wx:key="index" class="mb20"  style="padding:0 4rpx">
-                <view class="bgcfff br20 list-item ">
-                    <view class="djcai">
-                        <text wx:if="{{item.balanceType == 1}}" class="f30">提现</text>
-                        <text wx:if="{{item.balanceType == 2}}" class="f30">分红</text>
-                         <text class="f32">{{item.balanceAmountName}}</text>
+        <view class=" bgcf1f1" style="padding:20rpx 0rpx;">
+            <text class="f34 ">余额明细</text>
+        </view>
+    </view>
+    <view style="padding-top:260rpx">
+        <view wx:for="{{list}}" wx:key="index" class="mb20" style="padding:0 4rpx">
+            <view class="bgcfff br20 list-item ">
+                <view class="djcai ">
+                    <view>
+                        <text wx:if="{{item.type == 1}}" class="f30">余额充值</text>
+                        <text wx:if="{{item.type == 2}}" class="f30">购买商品</text>
+                        <text wx:if="{{item.type == 3}}" class="f30">分佣</text>
+                        <text wx:if="{{item.type == 4}}" class="f30">提现</text>
+                        <view class="f30 c999 mt20">{{item.create_time || ''}}</view>
                     </view>
-                    <view class="djcai mt20">
-                        <text class="f30 c999">{{item.createTime || ''}}</text>
-                         <text class="f32 c999">余额：{{item.balance}}</text>
-                    </view>
+                    <text class="f32 c999">{{item.money}}</text>
                 </view>
             </view>
         </view>
     </view>
+</view>

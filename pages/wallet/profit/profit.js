@@ -3,78 +3,25 @@ import { team } from "../../../api/index"
 import { isLogin } from "../../../utils/utils"
 Page({
     data: {
-        isModal: false,
-        teamInfo:{},
-        commission:{},
-        pool:{},
         ranking:[]
     },
-
-    async getTeamData() {
-        let islogin = await isLogin(this.data.isModal)
-        this.setData({ isModal: islogin })
-        if (this.data.isModal) {
-           
-        } else {
-            let { data } = await http.quest(team.teamInfo, {openid: wx.getStorageSync('userInfo').openid })
-            this.setData({teamInfo:data})
-        }
-    },
-
-    async getCommissionProfitData() {
-        let islogin = await isLogin(this.data.isModal)
-        this.setData({ isModal: islogin })
-        if (this.data.isModal) {
-           
-        } else {
-            let { data } = await http.quest(team.commissionProfit, {openid: wx.getStorageSync('userInfo').openid })
-            this.setData({commission:data})
-        }
-    },
-
-    async getPoolData() {
-        let islogin = await isLogin(this.data.isModal)
-        this.setData({ isModal: islogin })
-        if (this.data.isModal) {
-           
-        } else {
-            let { data } = await http.quest(team.pool, {openid: wx.getStorageSync('userInfo').openid })
-            this.setData({pool:data})
-        }
-    },
+   
     async geRankingData() {
-        let islogin = await isLogin(this.data.isModal)
-        this.setData({ isModal: islogin })
-        if (this.data.isModal) {
-           
-        } else {
-            let { data } = await http.quest(team.ranking, {openid: wx.getStorageSync('userInfo').openid })
+            let { data } = await http.quest(team.bonusList, {openid: wx.getStorageSync('userInfo').openid })
             this.setData({ranking:data})
-        }
+       
     },
 
-    close() {
-        this.setData({ isModal: false })
-    },
-    accomplish() {
-        this.setData({ isModal: false })
-        this.getTeamData()
-        this.getCommissionProfitData()
-        this.getPoolData()
-        this.geRankingData()
-    },
+  
    
     onLoad(options) {
       
     },
     onReady() {
-        this.getTeamData()
     },
 
    
     onShow() {
-        this.getCommissionProfitData()
-        this.getPoolData()
         this.geRankingData()
     },
 

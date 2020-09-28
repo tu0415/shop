@@ -40,11 +40,11 @@ Page({
             if(type == 5) {
 
             } else if(type ==6) {
-
+                wx.navigateTo({url:'/pages/wallet/profit/profit'})
             }else if(type ==7) {
                 wx.navigateTo({url:'/pages/integral/integral'})
             }else if(type ==8) {
-                // wx.navigateTo({url:'/pages/wallet/balance/balance'})
+                wx.navigateTo({url:'/pages/wallet/balance/balance'})
             }else if(type ==9) {
                 wx.navigateTo({url:'/pages/collect/collect'})
             }else if(type ==10) {

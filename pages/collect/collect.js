@@ -92,7 +92,6 @@ Page({
         });
         ids = ids.substring(0, ids.length - 1);
         let  data  = await http.quest(goods.delCollection, { goods_id:ids,openid:wx.getStorageSync('userInfo').openid })
-        console.log(data) 
         wx.showToast({title: data.msg,icon: 'none',duration: 2000});
         this.getCollectionList()
     }

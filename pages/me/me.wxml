@@ -14,9 +14,9 @@
             </view>
         </view>
           <view class="flex bgcfff team br20 mlr30 pr" style="margin-top:-80rpx;z-index:112">
-            <view  class="daic flex-column flex1">
+            <view data-type="6" bindtap="goDetail"  class="daic flex-column flex1">
                 <text class="f26 c333 ">{{userInfo.integration || 0}}</text>
-                <text class="f26 c333 mt20">上周分红</text>
+                <text class="f26 c333 mt20">分红</text>
             </view>
             <view data-type="7" bindtap="goDetail" class="daic flex-column flex1">
                 <text class="f26 c333 ">{{filters.toNumber(userInfo.credit)+filters.toNumber(userInfo.flush_credit) || 0}}</text>

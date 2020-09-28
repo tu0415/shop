@@ -1,6 +1,6 @@
 
-const baseUrl = 'http://192.168.0.120/index.php/api' // 本地
-// const baseUrl = 'https://www.shadowultimate.club/index.php/api' // 测试
+// const baseUrl = 'http://192.168.0.120/index.php/api' // 本地
+const baseUrl = 'https://www.shadowultimate.club/index.php/api' // 测试
 
 let questTotal = 0
 const quest = (url, parameter,method) => {
