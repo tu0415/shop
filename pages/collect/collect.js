@@ -87,11 +87,11 @@ Page({
         let ids = '';
         this.data.list.forEach(item => {
             if (item.isCheckShow) {
-                ids += item.goods_id + ",";
+                ids += item.id + ",";
             }
         });
         ids = ids.substring(0, ids.length - 1);
-        let  data  = await http.quest(goods.delCollection, { goods_id:ids,openid:wx.getStorageSync('userInfo').openid })
+        let  data  = await http.quest(goods.clearCollection, { ids,openid:wx.getStorageSync('userInfo').openid })
         wx.showToast({title: data.msg,icon: 'none',duration: 2000});
         this.getCollectionList()
     }

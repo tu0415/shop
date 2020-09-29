@@ -37,9 +37,7 @@ Page({
             wx.hideTabBar()
         } else { // 1-5订单 6分红 7积分 8余额 9收藏 10收货地址 11用户反馈 
             let {type} = e.currentTarget.dataset
-            if(type == 5) {
-
-            } else if(type ==6) {
+            if(type ==6) {
                 wx.navigateTo({url:'/pages/wallet/profit/profit'})
             }else if(type ==7) {
                 wx.navigateTo({url:'/pages/integral/integral'})

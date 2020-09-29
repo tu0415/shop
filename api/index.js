@@ -15,6 +15,8 @@ export const goods = {
 	delCollection:'/goods/delCollection', // 商品列表
 	goodsList:'/goods/goodsList', // 取消收藏
 	collectionList:'/goods/collectionList', // 取消收藏
+	clearCollection:'/goods/clearCollection', // 删除多个收藏
+
 }
 
 export const site = {
