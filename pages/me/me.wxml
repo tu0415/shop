@@ -19,7 +19,7 @@
                 <text class="f26 c333 mt20">分红</text>
             </view>
             <view data-type="7" bindtap="goDetail" class="daic flex-column flex1">
-                <text class="f26 c333 ">{{filters.toNumber(userInfo.credit)+filters.toNumber(userInfo.flush_credit) || 0}}</text>
+                <text class="f26 c333 ">{{filters.toFix(filters.toNumber(userInfo.credit)+filters.toNumber(userInfo.flush_credit) || 0,2)}}</text>
                 <text class="f26 c333 mt20">积分</text>
             </view>
             <view data-type="8" bindtap="goDetail" class="daic flex-column flex1">
