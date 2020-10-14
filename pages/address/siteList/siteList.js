@@ -10,7 +10,7 @@ Page({
     },
     compay:'',
     async getAddressList() {
-        let {data} =  await http.quest(site.addressList,{ openid:wx.getStorageSync('userInfo').openid})
+        const {data} =  await http.quest(site.addressList,{ openid:wx.getStorageSync('userInfo').openid})
         this.setData({addressList:data})
     },
 

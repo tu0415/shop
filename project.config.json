@@ -4,7 +4,7 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": false,
+        "urlCheck": true,
         "es6": true,
         "enhance": true,
         "postcss": true,
@@ -256,6 +256,20 @@
                     "name": "分红列表",
                     "pathName": "pages/wallet/profit/profit",
                     "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "分享",
+                    "pathName": "pages/share/share",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 28,
+                    "name": "扫码首页",
+                    "pathName": "pages/home/home",
+                    "query": "scene= %26pid%3D100%26id%3D100000",
                     "scene": null
                 }
             ]

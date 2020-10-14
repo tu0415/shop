@@ -7,7 +7,8 @@ Page({
         teamInfo:{},
         commission:{},
         pool:{},
-        ranking:[]
+        ranking:[],
+        pid:''
     },
 
     async getTeamData() {
@@ -65,7 +66,10 @@ Page({
     },
    
     onLoad(options) {
-      
+        this.setData({ pid: options.pid || '' })
+        if(options.pid) {
+            this.setData({isModal:true})
+        }
     },
     onReady() {
         this.getTeamData()
@@ -78,33 +82,16 @@ Page({
         this.geRankingData()
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
+    onShareAppMessage(res) {
+        let pid = wx.getStorageSync('userInfo').id || ''
+        return {
+            title: '乐速易购',
+            path: '/pages/team/team?pid=' + pid,
+            // imgUrl: '/static/images/qbdd@2x.png',
+            success(res) {
+            }
+        }
+    }
 
    
 })

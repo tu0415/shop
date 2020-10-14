@@ -50,7 +50,7 @@
             </view>
         </view>
         <view class="share mlr30  mt20">
-            <button class="share-btn" hover-class="none pr"  open-type="share" >
+            <view data-type="11" bindtap="goDetail" class="share-btn"   >
                 <view class="pr ">
                     <view class="f30 fff pb text">
                         分享好友
@@ -59,9 +59,8 @@
                         分享越多好友，奖励越多！
                     </view>
                 </view>
-                  
                 <image class="share-img" src="/static/images/fx_b@2x.png" mode="widthFix" lazy-load="false"  />
-            </button>
+            </view>
         </view>
         <view class="flex bgcfff menu br20 mlr30 flex-wrap mt20">
             <view  data-type="9" bindtap="goDetail" class="daic flex-column mb50  w33">

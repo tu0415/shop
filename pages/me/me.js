@@ -47,6 +47,8 @@ Page({
                 wx.navigateTo({url:'/pages/collect/collect'})
             }else if(type ==10) {
                 wx.navigateTo({url:'/pages/address/siteList/siteList'})
+            } else if(type ==11) { 
+                wx.navigateTo({url:'/pages/share/share'})
             } else {
                 wx.navigateTo({url:'/pages/order/orderList/orderList?type=' + type})
             }
@@ -73,6 +75,9 @@ Page({
         if(wx.getStorageSync('userInfo').openid) {
             this.getUserInfoEvt()
         }
+
+
+        
     },
     onShareAppMessage(res) {
         let pid = wx.getStorageSync('userInfo').id || ''

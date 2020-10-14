@@ -27,7 +27,8 @@
         "pages/team/team",
         "pages/wallet/recharge/recharge",
         "pages/teamDetail/teamDetail",
-        "pages/wallet/profit/profit"
+        "pages/wallet/profit/profit",
+        "pages/share/share"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -14,26 +14,51 @@ Page({
         id:0,
         goodslist:[],
         finish:false,
-        hotfinish:false
+        hotfinish:false,
+        isModal: false,
+        pid:''
     },
     navBarDefault:[{name: '首页',id: '0'}],
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad() {
+    onLoad(options) {
        wx.getSystemInfo({
-		   success:res=> {
-			   this.setData({
-				   scrollH:res.windowHeight  - 90
-			   })
-		   }
+		   success:res=> {this.setData({scrollH:res.windowHeight  - 90})}
        })
        this.getBarData()
        this.getSwiperData()
        this.getHotGoodsData(this.data.hotPage,1)
+       if(options.scene) {
+           let keyValue = decodeURIComponent(options.scene).split('&')
+           let obj = {};
+           for (var i = 0; i < keyValue.length; i++) {
+                let item = keyValue[i].split("=");
+                let key = item[0];
+                let value = item[1];
+                obj[key] = value;
+           }
+           wx.setStorageSync('pid',obj.pid)
+           this.setData({pid:obj.pid,isModal:true})
+       } else {
+            this.setData({ pid: options.pid || '' })
+            if(options.pid) {
+                this.setData({isModal:true})
+            }
+       }
       
     },
-    onShow() {},
+    onShow() {
+      
+    },
+
+    close() {
+        this.setData({ isModal: false })
+        wx.showTabBar()
+    },
+    accomplish() {
+        this.setData({ isModal: false})
+    },
     onChangeTab(e) {
         let id;
         let index = e.detail.current
@@ -116,7 +141,7 @@ Page({
             type:type
         }
         if (this.data.finish) return
-        let {data} = await http.quest(goods.goodsList,parameter)
+        const {data} = await http.quest(goods.goodsList,parameter)
         if(data && data.length) {
             this.data.finish = data.length < 6
             !this.data.finish && this.setData({page:this.data.goodsPage+=1})
@@ -135,7 +160,7 @@ Page({
         let pid = wx.getStorageSync('userInfo').id || ''
         return {
             title: '乐速易购',
-            path: '/pages/me/me?pid=' + pid,
+            path: '/pages/home/home?pid=' + pid,
             // imgUrl: '/static/images/qbdd@2x.png',
             success(res) {
             }

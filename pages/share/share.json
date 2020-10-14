@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-popup": "../../compontent/vant/popup/index"
+  },
+  "navigationBarTitleText": "分享"
+}

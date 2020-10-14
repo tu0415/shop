@@ -1,0 +1,18 @@
+<view class="share">
+    <view class="share-box " style="">
+        <image mode="widthFix" style="width:100%" src="{{posterUrl}}"></image>
+        <view class="flex mt20">
+            <button open-type="share" style="height:80rpx" class="btn f30 c333 bgcffd">分享好友</button>
+            <button bindtap="saveEvt" style="height:80rpx" class="btn f30 c333 bgcffd">保存分享海报</button>
+        </view>
+    </view>
+    <van-popup position="center" show="{{ show }}"  bind:close="onClose" custom-style="border-radius: 20rpx;">
+            <view class="bgcfff popup-count br20 flex flex-column">
+                <view class="txt  mb60 f32 bold flex">"乐速易购"需要保存图片或视频到你的相册</view>
+                <view class="flex" style="width:100%">
+                    <view class="flex1 flex bold c333 f30" bindtap="onClose">取消</view>
+                    <button class="bgcfff f30 btn flex flex1 bold" style="color:#586c96"  bindtap="openSetting">确定</button>
+                </view>
+            </view>
+        </van-popup>
+</view>

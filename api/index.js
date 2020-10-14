@@ -56,6 +56,7 @@ export const team = {
 	rechange:'/Team/rechange', // 充值列表
 	bonusList:'/Team/bonusList', // 分红记录
 	balanceLog:'/Team/balanceLog', // 余额明细
+	poster:'/Team/poster', // 余额明细
 }
 
 export const capital = {

@@ -27,16 +27,16 @@ Component({
         },
        async hanleGetUserInfo(e) {
             try {
-              
-                let {avatarUrl,province,city,nickName} = e.detail.userInfo
-                let code = await wslogin()
-                let {data} = await http.quest(login.openid,{code})
-                if(this.data.pid) {
-                    await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city,pid:this.data.pid},'post')
+                const {avatarUrl,province,city,nickName} = e.detail.userInfo
+                const code = await wslogin()
+                const {data} = await http.quest(login.openid,{code})
+                const pid = wx.getStorageSync('pid') || ''
+                if(this.data.pid || pid) {
+                    await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city,pid:this.data.pid || pid},'post')
                 } else {
                     await http.quest(login.register,{openid:data.openid,avatar:avatarUrl,nickname:nickName,province,city},'post')
                 }
-                let res = await http.quest(login.getUserInfo,{openid:data.openid},'post')
+                const res = await http.quest(login.getUserInfo,{openid:data.openid},'post')
                 wx.setStorageSync('userInfo',res.data)
                 this.triggerEvent('accomplish',false)
             } catch (error) {

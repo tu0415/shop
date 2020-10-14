@@ -7,7 +7,7 @@ Page({
     },
    
     async geRankingData() {
-            let { data } = await http.quest(team.bonusList, {openid: wx.getStorageSync('userInfo').openid })
+        const { data } = await http.quest(team.bonusList, {openid: wx.getStorageSync('userInfo').openid })
             this.setData({ranking:data})
        
     },

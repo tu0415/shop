@@ -27,7 +27,7 @@ Page({
     },
 
     async getAddressDetail(id) {
-        let {data} =  await http.quest(site.addressDetail,{id})
+        const {data} =  await http.quest(site.addressDetail,{id})
         this.setData({addressInfo:data})
     },
 
@@ -69,7 +69,7 @@ Page({
             default:this.data.addressInfo.default,
             id:this.id
         }
-       let data =  await http.quest(site.createAddress,paramenter)
+        const data =  await http.quest(site.createAddress,paramenter)
         wx.showToast({title: data.msg})
         setTimeout(()=>{wx.redirectTo({url: '/pages/address/siteList/siteList'})},800)
     },
@@ -77,7 +77,7 @@ Page({
     async addressEvt() {
         const res = await showModal({ content: '是否确认删除' })
         if (res.confirm) {
-            let data =  await http.quest(site.deladdress,{id:this.id})
+            const data =  await http.quest(site.deladdress,{id:this.id})
             wx.showToast({title: data.msg})
             setTimeout(()=>{wx.redirectTo({url: '/pages/address/siteList/siteList'})},800)
         }

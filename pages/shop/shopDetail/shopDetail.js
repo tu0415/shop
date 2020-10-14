@@ -11,6 +11,7 @@ Page({
        shopInfo:{},
        isModal:false,
        number:1,
+       pid:''
     },
     id:'',
     type:'',
@@ -91,15 +92,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        this.setData({ pid: options.pid || '' })
+        if(options.pid) {
+            this.setData({isModal:true})
+        }
+       
         this.getData(options.id)
         this.id = options.id
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
     },
 
     /**
@@ -108,34 +107,15 @@ Page({
     onShow: function () {
 
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
+    onShareAppMessage(res) {
+        let pid = wx.getStorageSync('userInfo').id || ''
+        return {
+            title: '乐速易购',
+            path: '/pages/shop/shopDetail/shopDetail?pid=' + pid + '&id=' + this.id,
+            // imgUrl: '/static/images/qbdd@2x.png',
+            success(res) {
+            }
+        }
+    }
    
 })

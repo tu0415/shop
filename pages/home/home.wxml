@@ -99,4 +99,8 @@
 			</scroll-view>
 		</swiper-item>
 	</swiper>
+
+	<view wx:if="{{isModal}}">
+        <loginModal :isModal="isModal" pid="{{pid}}" bind:close="close" bind:accomplish="accomplish"></loginModal>
+    </view>
 </view>

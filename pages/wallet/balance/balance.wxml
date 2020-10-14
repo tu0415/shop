@@ -1,5 +1,5 @@
 <view class="balance plr30 bgcf1f1">
-    <view class="position-fixed top" style="left: 50%;transform: translateX(-50%);width:690rpx">
+    <view class="position-fixed top bgcf1f1" style="left: 50%;transform: translateX(-50%);width:690rpx;padding-top:20rpx">
         <view class="info bgcf1f1 mrl30 pr br20 flex c333">
             <view class="">
                 <view class="f36 flex bold">{{userInfo.balance || 0}}</view>

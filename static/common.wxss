@@ -385,6 +385,10 @@ page {
     font-size: 36rpx;
 }
 
+.f40 {
+    font-size: 40rpx;
+}
+
 .f44 {
     font-size: 44rpx;
 }

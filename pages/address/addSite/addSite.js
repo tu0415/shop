@@ -62,7 +62,7 @@ Page({
             name:this.data.name,
             default:this.data.default
         }
-       let data =  await http.quest(site.createAddress,paramenter)
+        const data =  await http.quest(site.createAddress,paramenter)
         wx.showToast({title: data.msg})
         setTimeout(()=>{wx.redirectTo({url: '/pages/address/siteList/siteList'})},800)
     },

@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "loginModal": "../../compontent/loginModal/loginModal"
+  },
   "navigationBarTitleText": "乐速易购",
   "navigationBarBackgroundColor": "#FFD02B"
 }

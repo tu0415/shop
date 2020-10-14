@@ -2,9 +2,6 @@ page {
   height: 100%;
   background-color: #f1f1f1;
 }
-page .balance {
-  padding-top: 20rpx;
-}
 page .balance .info {
   height: 170rpx;
   margin-top: 20prx;

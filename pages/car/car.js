@@ -33,7 +33,7 @@ Page({
         let islogin = await isLogin(this.data.isModal)
         this.setData({ isModal: islogin })
         if(!this.data.isModal) {
-        let { data } = await http.quest(car.cartList, { openid: wx.getStorageSync('userInfo').openid })
+        const { data } = await http.quest(car.cartList, { openid: wx.getStorageSync('userInfo').openid })
         this.totalPrice = 0
         this.totalNumber = 0
         if (data && data.length) {
